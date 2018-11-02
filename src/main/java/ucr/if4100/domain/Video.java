@@ -5,25 +5,37 @@
  */
 package ucr.if4100.domain;
 
+import java.util.List;
+
 /**
  *
  * @author fabian
  */
 public class Video {
     
+    private String id;
     private String title;
     private String category;
     private String url;
-    private String artist;
+    private List artistList;
 
     public Video() {
     }
 
-    public Video(String title, String category, String url, String artist) {
+    public Video(String id, String title, String category, String url, List artistList) {
+        this.id = id;
         this.title = title;
         this.category = category;
         this.url = url;
-        this.artist = artist;
+        this.artistList = artistList;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -50,18 +62,20 @@ public class Video {
         this.url = url;
     }
 
-    public String getArtist() {
-        return artist;
+    public List getArtistList() {
+        return artistList;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
+    public void setArtistList(List artistList) {
+        this.artistList = artistList;
     }
 
     @Override
     public String toString() {
-        return "Playlist{" + "title=" + title + ", category=" + category + ", url=" + url + ", artist=" + artist + '}';
+        return "Video{" + "id=" + id + ", title=" + title + ", category=" + category + ", url=" + url + ", artistList=" + artistList + '}';
     }
+
+   
     
     
 }

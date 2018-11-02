@@ -18,12 +18,12 @@ public class Artist {
     private String lastName;
     private String nickName;
     private String nationality;
-    private Date birthday;
+    private String birthday;
 
     public Artist() {
     }
 
-    public Artist(int id, String firstName, String lastName, String nickName, String nationality, Date birthday) {
+    public Artist(int id, String firstName, String lastName, String nickName, String nationality, String birthday) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -72,11 +72,11 @@ public class Artist {
         this.nationality = nationality;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -84,4 +84,6 @@ public class Artist {
     public String toString() {
         return "Artist{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", nickName=" + nickName + ", nationality=" + nationality + ", birthday=" + birthday + '}';
     }
+
+    
 }

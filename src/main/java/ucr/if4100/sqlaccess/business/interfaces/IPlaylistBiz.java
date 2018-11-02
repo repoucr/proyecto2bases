@@ -6,16 +6,18 @@
 package ucr.if4100.sqlaccess.business.interfaces;
 
 import java.util.List;
-import ucr.if4100.sqlaccess.common.bean.Student;
+import ucr.if4100.domain.Playlist;
+
 
 /**
  *
- * @author Equipo
+ * @author fabian
  */
-public interface IStudentBiz {
+public interface IPlaylistBiz {
     
-    List<Student> getStudents();
+    List<Playlist> getPlaylist();
     
-    
-    Boolean insertStudents(String id, String name, String department, int totCredits);
+    Boolean insertBand(String id,String title,List videos);
+    Boolean updateBand(String id,String title,List videos);
+    Boolean deleteBand(String id);
 }

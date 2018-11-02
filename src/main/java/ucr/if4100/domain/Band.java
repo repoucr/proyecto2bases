@@ -13,20 +13,29 @@ import java.util.List;
  * @author fabian
  */
 public class Band {
-    
+    private String id;
     private String name;
-    private Date foundationDate;
+    private String foundationDate;
     private String country;
     private List members; 
 
     public Band() {
     }
 
-    public Band(String name, Date foundationDate, String country, List members) {
+    public Band(String id, String name, String foundationDate, String country, List members) {
+        this.id = id;
         this.name = name;
         this.foundationDate = foundationDate;
         this.country = country;
         this.members = members;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -37,11 +46,11 @@ public class Band {
         this.name = name;
     }
 
-    public Date getFoundationDate() {
+    public String getFoundationDate() {
         return foundationDate;
     }
 
-    public void setFoundationDate(Date foundationDate) {
+    public void setFoundationDate(String foundationDate) {
         this.foundationDate = foundationDate;
     }
 
@@ -63,8 +72,10 @@ public class Band {
 
     @Override
     public String toString() {
-        return "Band{" + "name=" + name + ", foundationDate=" + foundationDate + ", country=" + country + ", members=" + members + '}';
+        return "Band{" + "id=" + id + ", name=" + name + ", foundationDate=" + foundationDate + ", country=" + country + ", members=" + members + '}';
     }
+
     
-    
+
+   
 }

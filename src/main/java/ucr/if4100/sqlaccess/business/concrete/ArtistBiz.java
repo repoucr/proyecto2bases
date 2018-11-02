@@ -6,20 +6,20 @@
 package ucr.if4100.sqlaccess.business.concrete;
 
 import java.util.List;
-import ucr.if4100.sqlaccess.business.interfaces.IStudentBiz;
 import ucr.if4100.sqlaccess.common.bean.Student;
-import ucr.if4100.sqlaccess.data.StudentDataProvider;
+import ucr.if4100.sqlaccess.data.ArtistDataProvider;
+import ucr.if4100.sqlaccess.business.interfaces.IArtistBiz;
 
 /**
  *
  * @author Equipo
  */
-public class StudentBiz implements IStudentBiz{
+public class ArtistBiz implements IArtistBiz{
 
-    private StudentDataProvider _dataProvider;
+    private ArtistDataProvider _dataProvider;
     
-    public StudentBiz(){
-        this._dataProvider = new StudentDataProvider();
+    public ArtistBiz(){
+        this._dataProvider = new ArtistDataProvider();
     }
     
     @Override

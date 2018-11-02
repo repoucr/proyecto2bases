@@ -13,15 +13,25 @@ import java.util.List;
  */
 public class Playlist {
     
+    private String id;
     private String title;
     private List videos;
 
     public Playlist() {
     }
 
-    public Playlist(String title, List videos) {
+    public Playlist(String id, String title, List videos) {
+        this.id = id;
         this.title = title;
         this.videos = videos;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -42,8 +52,9 @@ public class Playlist {
 
     @Override
     public String toString() {
-        return "Playlist{" + "title=" + title + ", videos=" + videos + '}';
+        return "Playlist{" + "id=" + id + ", title=" + title + ", videos=" + videos + '}';
     }
+
     
     
 }
