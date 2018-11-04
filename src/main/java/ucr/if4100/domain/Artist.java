@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class Artist {
     
-    private int id;
+    private String id;
     private String firstName;
     private String lastName;
     private String nickName;
@@ -23,7 +23,7 @@ public class Artist {
     public Artist() {
     }
 
-    public Artist(int id, String firstName, String lastName, String nickName, String nationality, String birthday) {
+    public Artist(String id, String firstName, String lastName, String nickName, String nationality, String birthday) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -32,11 +32,11 @@ public class Artist {
         this.birthday = birthday;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -85,5 +85,4 @@ public class Artist {
         return "Artist{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", nickName=" + nickName + ", nationality=" + nationality + ", birthday=" + birthday + '}';
     }
 
-    
 }

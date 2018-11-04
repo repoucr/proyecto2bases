@@ -10,7 +10,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <connection_string>jdbc:sqlserver://163.178.173.148;databaseName=%s;user=%s;password=%s</connection_string>
-        <database_name>IF4100_IIS2018_A6_University</database_name>
+        <database_name>PIIBases</database_name>
         <user>estudiantesrp</user>
         <password>estudiantesrp</password>
     </properties>

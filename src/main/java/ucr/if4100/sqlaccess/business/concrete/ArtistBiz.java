@@ -6,7 +6,8 @@
 package ucr.if4100.sqlaccess.business.concrete;
 
 import java.util.List;
-import ucr.if4100.sqlaccess.common.bean.Student;
+import ucr.if4100.domain.Artist;
+
 import ucr.if4100.sqlaccess.data.ArtistDataProvider;
 import ucr.if4100.sqlaccess.business.interfaces.IArtistBiz;
 
@@ -22,15 +23,27 @@ public class ArtistBiz implements IArtistBiz{
         this._dataProvider = new ArtistDataProvider();
     }
     
+
     @Override
-    public List<Student> getStudents() {
-        return this._dataProvider.getStudents();
+    public List<Artist> getArtists() {
+       return this._dataProvider.getArtist();
     }
 
     @Override
-    public Boolean insertStudents(String id, String name, String department, int totCredits) {
-        Student newStudent = new Student(id, name, department, totCredits);
-        return _dataProvider.insertStudent(newStudent);
+    public Boolean insertArtist(String id, String firstName, String lastName, String nickName, String nationality, String birthday) {
+       Artist newArtist = new Artist(id, firstName, lastName, nickName,nationality,birthday);
+       return _dataProvider.insertArtist(newArtist);
+    }
+
+    @Override
+    public Boolean updateArtist(String id, String firstName, String lastName, String nickName, String nationality, String birthday) {
+       Artist newArtist = new Artist(id, firstName, lastName, nickName,nationality,birthday);
+       return _dataProvider.updateArtist(newArtist);
+    }
+
+    @Override
+    public Boolean deleteArtist(String id) {
+        return _dataProvider.deleteArtist(id);
     }
     
 }

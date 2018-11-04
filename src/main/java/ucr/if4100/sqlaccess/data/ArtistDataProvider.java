@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import ucr.if4100.sqlaccess.common.bean.Student;
+import ucr.if4100.domain.Artist;
 
 /**
  *
@@ -21,27 +21,29 @@ import ucr.if4100.sqlaccess.common.bean.Student;
  */
 public class ArtistDataProvider {
 
-    public List<Student> getStudents() {
+    public List<Artist> getArtist() {
         Connection conn = null;
         ResultSet queryResult = null;
-        List<Student> students = new ArrayList<>();
+        List<Artist> artists = new ArrayList<>();
 
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            PreparedStatement getStudent = conn.prepareStatement("SELECT ID, name, dept_name, tot_cred FROM student");
+            PreparedStatement getArtist = conn.prepareStatement("SELECT ID, firstName, lastName, nickname, nationality, birthday FROM artist");
 
-            queryResult = getStudent.executeQuery();
+            queryResult = getArtist.executeQuery();
 
             while (queryResult.next()) {
-                Student student = new Student();
+                Artist artist = new Artist();
 
-                student.setId(queryResult.getString("ID"));
-                student.setName(queryResult.getString("name"));
-                student.setDepartment(queryResult.getString("dept_name"));
-                student.setTotCredits(queryResult.getInt("tot_cred"));
+                artist.setId(queryResult.getString("ID"));
+                artist.setFirstName(queryResult.getString("firstName"));
+                artist.setLastName(queryResult.getString("lastName"));
+                artist.setNickName(queryResult.getString("nickname"));
+                artist.setNationality(queryResult.getString("nationality"));
+                artist.setBirthday(queryResult.getString("birthday"));
 
-                students.add(student);
+                artists.add(artist);
             }
 
         } catch (SQLException e) {
@@ -66,26 +68,72 @@ public class ArtistDataProvider {
             }
         }
 
-        return students;
+        return artists;
 
     }
-    
-    public boolean insertStudent(Student newStudent){
+
+    public boolean insertArtist(Artist newArtist) {
         Connection conn = null;
-        Boolean wasSuccessfullyUpdated = false;
-        PreparedStatement insertStudent = null;
+        Boolean wasSuccessfullyInserted = false;
+        PreparedStatement insertArtist = null;
         try {
             conn = DatabaseConnection.getDatabaseConnection();
-            
-            String insertStudentStm = String.format("INSERT INTO STUDENT (ID, name, dept_name, tot_cred) VALUES ('%s', '%s', '%s', '%s')"
-                                          , newStudent.getId()
-                                            , newStudent.getName()
-                                             , newStudent.getDepartment()
-                                               , newStudent.getTotCredits());
-            
-            insertStudent = conn.prepareStatement(insertStudentStm);
-            int insertResult = insertStudent.executeUpdate();
-            if(insertResult == 1){
+
+            String insertArtistStm = String.format("INSERT INTO ARTIST (ID, firstName, lastName, nickname, nationality, birthday) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')",
+                     newArtist.getId(),
+                     newArtist.getFirstName(),
+                     newArtist.getLastName(),
+                     newArtist.getNickName(),
+                     newArtist.getNationality(),
+                     newArtist.getBirthday());
+
+            insertArtist = conn.prepareStatement(insertArtistStm);
+            int insertResult = insertArtist.executeUpdate();
+            if (insertResult == 1) {
+                wasSuccessfullyInserted = true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (insertArtist != null) {
+                try {
+                    insertArtist.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (conn != null) {
+                    try {
+                        conn.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }
+        return wasSuccessfullyInserted;
+    }
+    
+    public boolean updateArtist(Artist updatedArtist) {
+        Connection conn = null;
+        Boolean wasSuccessfullyUpdated = false;
+        PreparedStatement updateArtist = null;
+        try {
+            conn = DatabaseConnection.getDatabaseConnection();
+
+            String updateArtistStm = String.format("UPDATE ARTIST SET firstName = '%s',SET lastName = '%s',SET nickname = '%s',SET nationality = '%s',SET birthday = '%s'WHERE ID = '%s'",
+                 
+                     updatedArtist.getFirstName(),
+                     updatedArtist.getLastName(),
+                     updatedArtist.getNickName(),
+                     updatedArtist.getNationality(),
+                     updatedArtist.getBirthday(),
+                     updatedArtist.getId());
+
+            updateArtist = conn.prepareStatement(updateArtistStm);
+            int updateResult = updateArtist.executeUpdate();
+            if (updateResult == 1) {
                 wasSuccessfullyUpdated = true;
             }
         } catch (SQLException ex) {
@@ -93,61 +141,59 @@ public class ArtistDataProvider {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            if(insertStudent != null){
+            if (updateArtist != null) {
                 try {
-                    insertStudent.close();
+                    updateArtist.close();
                 } catch (SQLException ex) {
                     Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
-                } if (conn != null){
+                }
+                if (conn != null) {
                     try {
                         conn.close();
                     } catch (SQLException ex) {
                         Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            } 
+            }
         }
         return wasSuccessfullyUpdated;
     }
-    
-     public boolean updateStudent(Student newStudent){
+
+    public boolean deleteArtist(String deletedArtist) {
         Connection conn = null;
-        Boolean wasSuccessfullyUpdated = false;
-        PreparedStatement insertStudent = null;
+        Boolean wasSuccessfullyDeleted = false;
+        PreparedStatement deleteArtist = null;
         try {
             conn = DatabaseConnection.getDatabaseConnection();
-            
-            String updateStudentStm = String.format("UPDATE STUDENT (ID, name, dept_name, tot_cred) VALUES ('%s', '%s', '%s', '%s')"
-                                          , newStudent.getId()
-                                            , newStudent.getName()
-                                             , newStudent.getDepartment()
-                                               , newStudent.getTotCredits());
-            
-            insertStudent = conn.prepareStatement(updateStudentStm);
-            int insertResult = insertStudent.executeUpdate();
-            if(insertResult == 1){
-                wasSuccessfullyUpdated = true;
+
+            String deleteArtistStm = String.format("DELETE FROM ARTIST WHERE ID = '%s'",deletedArtist);
+             
+            deleteArtist = conn.prepareStatement(deleteArtistStm);
+            int updateResult = deleteArtist.executeUpdate();
+            if (updateResult == 1) {
+                wasSuccessfullyDeleted = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            if(insertStudent != null){
+            if (deleteArtist != null) {
                 try {
-                    insertStudent.close();
+                    deleteArtist.close();
                 } catch (SQLException ex) {
                     Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
-                } if (conn != null){
+                }
+                if (conn != null) {
                     try {
                         conn.close();
                     } catch (SQLException ex) {
                         Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            } 
+            }
         }
-        return wasSuccessfullyUpdated;
+        return wasSuccessfullyDeleted;
     }
 
 }
