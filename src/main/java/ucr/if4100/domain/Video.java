@@ -17,16 +17,18 @@ public class Video {
     private String title;
     private String category;
     private String url;
+    private String year;
     private List artistList;
 
     public Video() {
     }
 
-    public Video(String id, String title, String category, String url, List artistList) {
+    public Video(String id, String title, String category, String url, String year, List artistList) {
         this.id = id;
         this.title = title;
         this.category = category;
         this.url = url;
+        this.year = year;
         this.artistList = artistList;
     }
 
@@ -62,6 +64,14 @@ public class Video {
         this.url = url;
     }
 
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
     public List getArtistList() {
         return artistList;
     }
@@ -72,9 +82,10 @@ public class Video {
 
     @Override
     public String toString() {
-        return "Video{" + "id=" + id + ", title=" + title + ", category=" + category + ", url=" + url + ", artistList=" + artistList + '}';
+        return "Video{" + "id=" + id + ", title=" + title + ", category=" + category + ", url=" + url + ", year=" + year + ", artistList=" + artistList + '}';
     }
 
+    
    
     
     
