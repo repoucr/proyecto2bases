@@ -19,8 +19,8 @@ import ucr.if4100.domain.Band;
  *
  */
 public class BandDataProvider {
-    
-       public List<Band> getBand() {
+
+    public List<Band> getBand() {
         Connection conn = null;
         ResultSet queryResult = null;
         List<Band> bands = new ArrayList<>();
@@ -78,11 +78,11 @@ public class BandDataProvider {
             conn = DatabaseConnection.getDatabaseConnection();
 
             String insertBandStm = String.format("INSERT INTO ARTIST (ID, name, foundationDate, country) VALUES ('%s', '%s', '%s', '%s')",
-                     newBand.getId(),
-                     newBand.getName(),
-                     newBand.getFoundationDate(),
-                     newBand.getCountry(),
-                     newBand.getMembers());
+                    newBand.getId(),
+                    newBand.getName(),
+                    newBand.getFoundationDate(),
+                    newBand.getCountry(),
+                    newBand.getMembers());
 
             insertBand = conn.prepareStatement(insertBandStm);
             int insertResult = insertBand.executeUpdate();
@@ -111,7 +111,7 @@ public class BandDataProvider {
         }
         return wasSuccessfullyInserted;
     }
-    
+
     public boolean updateBand(Band updatedBand) {
         Connection conn = null;
         Boolean wasSuccessfullyUpdated = false;
@@ -119,16 +119,13 @@ public class BandDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String updateBandStm = String.format("UPDATE BAND SET firstName = '%s',SET lastName = '%s',SET nickname = '%s',SET nationality = '%s',SET birthday = '%s'WHERE ID = '%s'",
-                 
-                     updatedBand.getId(),
-                     updatedBand.getName(),
-                     updatedBand.getFoundationDate(),
-                     updatedBand.getCountry(),
-                     updatedBand.getMembers());
-         
+            String updateBandStm = String.format("UPDATE BAND SET name = '%s',SET foundationDate = '%s',SET country = '%s','WHERE ID = '%s'",
+                    updatedBand.getName(),
+                    updatedBand.getFoundationDate(),
+                    updatedBand.getCountry(),
+                    updatedBand.getId());
 
-            updateBand = conn.prepareStatement(updateBandStm);
+                    updateBand = conn.prepareStatement(updateBandStm);
             int updateResult = updateBand.executeUpdate();
             if (updateResult == 1) {
                 wasSuccessfullyUpdated = true;
@@ -163,8 +160,8 @@ public class BandDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String deleteBandStm = String.format("DELETE FROM BAND WHERE ID = '%s'",deletedband);
-             
+            String deleteBandStm = String.format("DELETE FROM BAND WHERE ID = '%s'", deletedband);
+
             deleteBand = conn.prepareStatement(deleteBandStm);
             int updateResult = deleteBand.executeUpdate();
             if (updateResult == 1) {
@@ -192,5 +189,5 @@ public class BandDataProvider {
         }
         return wasSuccessfullyDeleted;
     }
-    
+
 }
