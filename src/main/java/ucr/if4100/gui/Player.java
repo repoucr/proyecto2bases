@@ -147,7 +147,8 @@ public class Player extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CRUD crud = new CRUD();
+        Crud crud = new Crud();
+        this.setVisible(false);
         crud.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -183,7 +184,6 @@ public class Player extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Player().setVisible(true);
-                System.out.println("Hola mundo");
             }
         });
     }

@@ -195,5 +195,4 @@ public class ArtistDataProvider {
         }
         return wasSuccessfullyDeleted;
     }
-
 }
