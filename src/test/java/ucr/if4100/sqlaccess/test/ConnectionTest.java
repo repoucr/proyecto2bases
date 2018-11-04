@@ -31,6 +31,10 @@ public class ConnectionTest {
 //        
 //        Boolean wasInsertedCorrectly = studentBiz.insertStudents("B6685", "Sergio Yandel", "Comp. Sci.", 140);
 //        System.out.println("Was the user successfully inserted?" + (wasInsertedCorrectly ? " yes": " no"));
+
+//        IArtistBiz studentBiz = new ArtistBiz();
+//        List<Student> students = studentBiz.getStudents();
+
     }
     
 }
