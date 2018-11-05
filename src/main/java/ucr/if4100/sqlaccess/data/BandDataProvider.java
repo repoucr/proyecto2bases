@@ -77,7 +77,7 @@ public class BandDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String insertBandStm = String.format("INSERT INTO ARTIST (ID, name, foundationDate, country) VALUES ('%s', '%s', '%s', '%s')",
+            String insertBandStm = String.format("INSERT INTO band (ID, name, foundationDate, country) VALUES ('%s', '%s', '%s', '%s')",
                     newBand.getId(),
                     newBand.getName(),
                     newBand.getFoundationDate(),
