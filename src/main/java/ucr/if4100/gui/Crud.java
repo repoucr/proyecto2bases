@@ -37,81 +37,81 @@ public class Crud extends javax.swing.JFrame {
         jTabbedPane7 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        playlistTable = new javax.swing.JTable();
         label20 = new java.awt.Label();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jList5 = new javax.swing.JList<>();
+        addVideoList = new javax.swing.JList<>();
         label21 = new java.awt.Label();
-        jTextField20 = new javax.swing.JTextField();
+        idPlaylistTextfield = new javax.swing.JTextField();
         label22 = new java.awt.Label();
-        jTextField21 = new javax.swing.JTextField();
+        namePlaylistTextfield = new javax.swing.JTextField();
         label23 = new java.awt.Label();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        addVideoToPlaylistButton = new javax.swing.JButton();
+        createPlaylistButton = new javax.swing.JButton();
+        deleteVideoFromPlaylistButton = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jList6 = new javax.swing.JList<>();
-        jPanel6 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
-        label13 = new java.awt.Label();
-        jButton6 = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
-        label14 = new java.awt.Label();
-        label15 = new java.awt.Label();
-        jTextField15 = new javax.swing.JTextField();
-        label16 = new java.awt.Label();
-        jTextField16 = new javax.swing.JTextField();
-        label17 = new java.awt.Label();
-        jTextField17 = new javax.swing.JTextField();
-        label18 = new java.awt.Label();
-        jTextField18 = new javax.swing.JTextField();
-        label19 = new java.awt.Label();
-        jTextField19 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        deleteVideoList = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        bandsTable = new javax.swing.JTable();
         label6 = new java.awt.Label();
-        jTextField8 = new javax.swing.JTextField();
+        idBandTextField = new javax.swing.JTextField();
         label7 = new java.awt.Label();
-        jTextField9 = new javax.swing.JTextField();
+        bandNameTextField = new javax.swing.JTextField();
         label8 = new java.awt.Label();
-        jTextField10 = new javax.swing.JTextField();
+        countryBandTextField = new javax.swing.JTextField();
         label10 = new java.awt.Label();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        createBandButton = new javax.swing.JButton();
+        deleteBandButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        membersList = new javax.swing.JList<>();
         label11 = new java.awt.Label();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
+        artistBandList = new javax.swing.JList<>();
+        addBandButton = new javax.swing.JButton();
         label12 = new java.awt.Label();
+        yearBandComboBox = new javax.swing.JComboBox<>();
+        monthBandComboBox = new javax.swing.JComboBox<>();
+        dayBandComboBox = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        deleteArtistTable = new javax.swing.JTable();
+        deleteArtistButton = new javax.swing.JButton();
+        addArtistButton = new javax.swing.JButton();
+        idArtistTextField = new javax.swing.JTextField();
+        lastNameTextField = new javax.swing.JTextField();
+        firstNameTextField = new javax.swing.JTextField();
+        nicknameTextField = new javax.swing.JTextField();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
         label3 = new java.awt.Label();
         label4 = new java.awt.Label();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
         label5 = new java.awt.Label();
+        yearComboBox = new javax.swing.JComboBox<>();
+        monthComboBox = new javax.swing.JComboBox<>();
+        dayComboBox = new javax.swing.JComboBox<>();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        videoTable = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        artistList = new javax.swing.JList<>();
+        label13 = new java.awt.Label();
+        deleteVideoButton = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        addNewVideoList = new javax.swing.JList<>();
+        label14 = new java.awt.Label();
+        label15 = new java.awt.Label();
+        idVideoTextField = new javax.swing.JTextField();
+        label16 = new java.awt.Label();
+        nameVideoTextField = new javax.swing.JTextField();
+        label17 = new java.awt.Label();
+        categoryVideoTextField = new javax.swing.JTextField();
+        label18 = new java.awt.Label();
+        urlVideoTextField = new javax.swing.JTextField();
+        label19 = new java.awt.Label();
+        yearVideoTextField = new javax.swing.JTextField();
+        addNewVideoButton = new javax.swing.JButton();
+        addVideoButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,11 +129,11 @@ public class Crud extends javax.swing.JFrame {
 
         jTabbedPane7.setBackground(new java.awt.Color(51, 0, 51));
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(203, 216, 243));
 
-        jTable4.setBackground(new java.awt.Color(204, 204, 204));
-        jTable4.setForeground(new java.awt.Color(204, 0, 204));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        playlistTable.setBackground(new java.awt.Color(203, 216, 243));
+        playlistTable.setForeground(new java.awt.Color(204, 0, 204));
+        playlistTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -155,79 +155,79 @@ public class Crud extends javax.swing.JFrame {
                 "ID", "Name"
             }
         ));
-        jTable4.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable4.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jTable4.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane8.setViewportView(jTable4);
+        playlistTable.setGridColor(new java.awt.Color(255, 255, 255));
+        playlistTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        playlistTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane8.setViewportView(playlistTable);
 
         label20.setForeground(new java.awt.Color(147, 62, 197));
         label20.setText("Video(s)");
 
-        jList5.setBackground(new java.awt.Color(204, 204, 204));
-        jList5.setForeground(new java.awt.Color(147, 62, 197));
-        jList5.setModel(new javax.swing.AbstractListModel<String>() {
+        addVideoList.setBackground(new java.awt.Color(203, 216, 243));
+        addVideoList.setForeground(new java.awt.Color(147, 62, 197));
+        addVideoList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList5.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jList5.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane9.setViewportView(jList5);
+        addVideoList.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        addVideoList.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane9.setViewportView(addVideoList);
 
         label21.setForeground(new java.awt.Color(147, 62, 197));
         label21.setText("Videos");
 
-        jTextField20.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField20.setToolTipText("ID");
-        jTextField20.addActionListener(new java.awt.event.ActionListener() {
+        idPlaylistTextfield.setForeground(new java.awt.Color(204, 0, 204));
+        idPlaylistTextfield.setToolTipText("ID");
+        idPlaylistTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField20ActionPerformed(evt);
+                idPlaylistTextfieldActionPerformed(evt);
             }
         });
 
         label22.setForeground(new java.awt.Color(147, 62, 197));
         label22.setText("ID");
 
-        jTextField21.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField21.addActionListener(new java.awt.event.ActionListener() {
+        namePlaylistTextfield.setForeground(new java.awt.Color(204, 0, 204));
+        namePlaylistTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField21ActionPerformed(evt);
+                namePlaylistTextfieldActionPerformed(evt);
             }
         });
 
         label23.setForeground(new java.awt.Color(147, 62, 197));
         label23.setText("Title");
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
-        jButton9.setContentAreaFilled(false);
+        addVideoToPlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
+        addVideoToPlaylistButton.setContentAreaFilled(false);
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
-        jButton10.setContentAreaFilled(false);
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        createPlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
+        createPlaylistButton.setContentAreaFilled(false);
+        createPlaylistButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                createPlaylistButtonActionPerformed(evt);
             }
         });
 
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
-        jButton11.setToolTipText("");
-        jButton11.setContentAreaFilled(false);
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        deleteVideoFromPlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deleteVideoFromPlaylistButton.setToolTipText("");
+        deleteVideoFromPlaylistButton.setContentAreaFilled(false);
+        deleteVideoFromPlaylistButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                deleteVideoFromPlaylistButtonActionPerformed(evt);
             }
         });
 
-        jList6.setBackground(new java.awt.Color(204, 204, 204));
-        jList6.setForeground(new java.awt.Color(147, 62, 197));
-        jList6.setModel(new javax.swing.AbstractListModel<String>() {
+        deleteVideoList.setBackground(new java.awt.Color(203, 216, 243));
+        deleteVideoList.setForeground(new java.awt.Color(147, 62, 197));
+        deleteVideoList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList6.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jList6.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane10.setViewportView(jList6);
+        deleteVideoList.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        deleteVideoList.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane10.setViewportView(deleteVideoList);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -242,26 +242,27 @@ public class Crud extends javax.swing.JFrame {
                                 .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton11))
+                            .addComponent(deleteVideoFromPlaylistButton))
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(311, 311, 311)
+                                .addComponent(addVideoToPlaylistButton)
+                                .addGap(44, 44, 44))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addGap(314, 314, 314)
-                                .addComponent(jButton9)))
-                        .addGap(44, 44, 44)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)))
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(idPlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                .addComponent(namePlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(createPlaylistButton, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(543, 543, 543)
                         .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,11 +275,11 @@ public class Crud extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idPlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
                         .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
-                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(namePlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
@@ -287,174 +288,21 @@ public class Crud extends javax.swing.JFrame {
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton11)
+                    .addComponent(deleteVideoFromPlaylistButton)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton10)
-                        .addComponent(jButton9)))
+                        .addComponent(createPlaylistButton)
+                        .addComponent(addVideoToPlaylistButton)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
         jTabbedPane7.addTab("Playlist", jPanel5);
 
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable3.setBackground(new java.awt.Color(204, 204, 204));
-        jTable3.setForeground(new java.awt.Color(204, 0, 204));
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "ID", "Title", "URL"
-            }
-        ));
-        jTable3.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable3.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jTable3.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane5.setViewportView(jTable3);
-
-        jPanel6.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 301, 202));
-
-        jList3.setBackground(new java.awt.Color(204, 204, 204));
-        jList3.setForeground(new java.awt.Color(147, 62, 197));
-        jList3.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList3.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jList3.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane6.setViewportView(jList3);
-
-        jPanel6.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 301, 107));
-
-        label13.setForeground(new java.awt.Color(147, 62, 197));
-        label13.setText("Artist(s)");
-        jPanel6.add(label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
-        jButton6.setContentAreaFilled(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
-
-        jList4.setBackground(new java.awt.Color(204, 204, 204));
-        jList4.setForeground(new java.awt.Color(147, 62, 197));
-        jList4.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList4.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jList4.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane7.setViewportView(jList4);
-
-        jPanel6.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 299, 281));
-
-        label14.setForeground(new java.awt.Color(147, 62, 197));
-        label14.setText("Artists & bands");
-        jPanel6.add(label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
-
-        label15.setForeground(new java.awt.Color(147, 62, 197));
-        label15.setText("ID");
-        jPanel6.add(label15, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, -1, -1));
-
-        jTextField15.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField15.setToolTipText("ID");
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 70, 178, -1));
-
-        label16.setForeground(new java.awt.Color(147, 62, 197));
-        label16.setText("Title");
-        jPanel6.add(label16, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, -1, -1));
-
-        jTextField16.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField16ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, 178, -1));
-
-        label17.setForeground(new java.awt.Color(147, 62, 197));
-        label17.setText("Category");
-        jPanel6.add(label17, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, -1, -1));
-
-        jTextField17.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField17ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 200, 178, -1));
-
-        label18.setForeground(new java.awt.Color(147, 62, 197));
-        label18.setText("URL");
-        jPanel6.add(label18, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, -1, -1));
-
-        jTextField18.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 270, 178, -1));
-
-        label19.setForeground(new java.awt.Color(147, 62, 197));
-        label19.setText("Year");
-        jPanel6.add(label19, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, -1, -1));
-
-        jTextField19.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField19ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, 59, -1));
-
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
-        jButton7.setContentAreaFilled(false);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 420, -1, -1));
-
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
-        jButton8.setContentAreaFilled(false);
-        jPanel6.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, -1, -1));
-
-        jTabbedPane7.addTab("Video", jPanel6);
-
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(203, 216, 243));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable2.setBackground(new java.awt.Color(204, 204, 204));
-        jTable2.setForeground(new java.awt.Color(204, 0, 204));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        bandsTable.setBackground(new java.awt.Color(204, 204, 204));
+        bandsTable.setForeground(new java.awt.Color(204, 0, 204));
+        bandsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -476,10 +324,10 @@ public class Crud extends javax.swing.JFrame {
                 "ID", "Name", "Country"
             }
         ));
-        jTable2.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable2.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jTable2.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane2.setViewportView(jTable2);
+        bandsTable.setGridColor(new java.awt.Color(255, 255, 255));
+        bandsTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        bandsTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane2.setViewportView(bandsTable);
 
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 301, 202));
 
@@ -487,120 +335,115 @@ public class Crud extends javax.swing.JFrame {
         label6.setText("ID");
         jPanel4.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 60, -1, -1));
 
-        jTextField8.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField8.setToolTipText("ID");
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        idBandTextField.setForeground(new java.awt.Color(204, 0, 204));
+        idBandTextField.setToolTipText("ID");
+        idBandTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                idBandTextFieldActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 178, -1));
+        jPanel4.add(idBandTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 178, -1));
 
         label7.setForeground(new java.awt.Color(147, 62, 197));
-        label7.setText("First name");
+        label7.setText("Band name");
         jPanel4.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, -1, -1));
 
-        jTextField9.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        bandNameTextField.setForeground(new java.awt.Color(204, 0, 204));
+        bandNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                bandNameTextFieldActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, 178, -1));
+        jPanel4.add(bandNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, 178, -1));
 
         label8.setForeground(new java.awt.Color(147, 62, 197));
         label8.setText("Country");
         jPanel4.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, -1, -1));
 
-        jTextField10.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        countryBandTextField.setForeground(new java.awt.Color(204, 0, 204));
+        countryBandTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                countryBandTextFieldActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 178, -1));
+        jPanel4.add(countryBandTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 178, -1));
 
         label10.setForeground(new java.awt.Color(147, 62, 197));
         label10.setText("Fundation date");
         jPanel4.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, -1, -1));
 
-        jTextField12.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        createBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
+        createBandButton.setContentAreaFilled(false);
+        createBandButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                createBandButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 59, -1));
+        jPanel4.add(createBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 410, -1, -1));
 
-        jTextField13.setForeground(new java.awt.Color(204, 0, 204));
-        jPanel4.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 270, 70, -1));
-
-        jTextField14.setForeground(new java.awt.Color(204, 0, 204));
-        jPanel4.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 270, 40, -1));
-
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
-        jButton5.setContentAreaFilled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        deleteBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deleteBandButton.setContentAreaFilled(false);
+        deleteBandButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                deleteBandButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 410, -1, -1));
+        jPanel4.add(deleteBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
-
-        jList1.setBackground(new java.awt.Color(204, 204, 204));
-        jList1.setForeground(new java.awt.Color(147, 62, 197));
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        membersList.setBackground(new java.awt.Color(203, 216, 243));
+        membersList.setForeground(new java.awt.Color(147, 62, 197));
+        membersList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jList1.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane3.setViewportView(jList1);
+        membersList.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        membersList.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane3.setViewportView(membersList);
 
         jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 301, 107));
 
         label11.setForeground(new java.awt.Color(147, 62, 197));
         label11.setText("Members");
-        jPanel4.add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
+        jPanel4.add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
-        jList2.setBackground(new java.awt.Color(204, 204, 204));
-        jList2.setForeground(new java.awt.Color(147, 62, 197));
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        artistBandList.setBackground(new java.awt.Color(203, 216, 243));
+        artistBandList.setForeground(new java.awt.Color(147, 62, 197));
+        artistBandList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList2.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jList2.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane4.setViewportView(jList2);
+        artistBandList.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        artistBandList.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane4.setViewportView(artistBandList);
 
         jPanel4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 299, 281));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, -1, -1));
+        addBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
+        addBandButton.setContentAreaFilled(false);
+        jPanel4.add(addBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, -1, -1));
 
         label12.setForeground(new java.awt.Color(147, 62, 197));
         label12.setText("Artists & bands");
         jPanel4.add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
 
+        yearBandComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(yearBandComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, -1, -1));
+
+        monthBandComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(monthBandComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 270, -1, -1));
+
+        dayBandComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(dayBandComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 270, -1, -1));
+
         jTabbedPane7.addTab("Band", jPanel4);
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(203, 216, 243));
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setForeground(new java.awt.Color(204, 0, 204));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        deleteArtistTable.setBackground(new java.awt.Color(203, 216, 243));
+        deleteArtistTable.setForeground(new java.awt.Color(204, 0, 204));
+        deleteArtistTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -629,52 +472,53 @@ public class Crud extends javax.swing.JFrame {
                 "ID", "First name", "Last name", "Nickname", "Birthday"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane1.setViewportView(jTable1);
+        deleteArtistTable.setGridColor(new java.awt.Color(255, 255, 255));
+        deleteArtistTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        deleteArtistTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane1.setViewportView(deleteArtistTable);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        deleteArtistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deleteArtistButton.setContentAreaFilled(false);
+        deleteArtistButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                deleteArtistButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        addArtistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
+        addArtistButton.setContentAreaFilled(false);
+        addArtistButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                addArtistButtonActionPerformed(evt);
             }
         });
 
-        jTextField1.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField1.setToolTipText("ID");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        idArtistTextField.setForeground(new java.awt.Color(204, 0, 204));
+        idArtistTextField.setToolTipText("ID");
+        idArtistTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                idArtistTextFieldActionPerformed(evt);
             }
         });
 
-        jTextField2.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        lastNameTextField.setForeground(new java.awt.Color(204, 0, 204));
+        lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                lastNameTextFieldActionPerformed(evt);
             }
         });
 
-        jTextField3.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        firstNameTextField.setForeground(new java.awt.Color(204, 0, 204));
+        firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                firstNameTextFieldActionPerformed(evt);
             }
         });
 
-        jTextField4.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        nicknameTextField.setForeground(new java.awt.Color(204, 0, 204));
+        nicknameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                nicknameTextFieldActionPerformed(evt);
             }
         });
 
@@ -690,19 +534,14 @@ public class Crud extends javax.swing.JFrame {
         label4.setForeground(new java.awt.Color(147, 62, 197));
         label4.setText("Birthday");
 
-        jTextField5.setForeground(new java.awt.Color(204, 0, 204));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-
-        jTextField6.setForeground(new java.awt.Color(204, 0, 204));
-
-        jTextField7.setForeground(new java.awt.Color(204, 0, 204));
-
         label5.setForeground(new java.awt.Color(147, 62, 197));
         label5.setText("Nickname");
+
+        yearComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        dayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -711,27 +550,28 @@ public class Crud extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
+                    .addComponent(deleteArtistButton)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(177, 177, 177)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idArtistTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nicknameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addArtistButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(376, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -742,136 +582,284 @@ public class Crud extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idArtistTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nicknameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton2))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(deleteArtistButton))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(addArtistButton)))
                 .addGap(0, 87, Short.MAX_VALUE))
         );
 
         jTabbedPane7.addTab("Artist", jPanel3);
+
+        jPanel6.setBackground(new java.awt.Color(203, 216, 243));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        videoTable.setBackground(new java.awt.Color(203, 216, 243));
+        videoTable.setForeground(new java.awt.Color(204, 0, 204));
+        videoTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "Title", "URL"
+            }
+        ));
+        videoTable.setGridColor(new java.awt.Color(255, 255, 255));
+        videoTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        videoTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane5.setViewportView(videoTable);
+
+        jPanel6.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 301, 202));
+
+        artistList.setBackground(new java.awt.Color(203, 216, 243));
+        artistList.setForeground(new java.awt.Color(147, 62, 197));
+        artistList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        artistList.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        artistList.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane6.setViewportView(artistList);
+
+        jPanel6.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 301, 107));
+
+        label13.setForeground(new java.awt.Color(147, 62, 197));
+        label13.setText("Artist(s)");
+        jPanel6.add(label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+
+        deleteVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deleteVideoButton.setContentAreaFilled(false);
+        deleteVideoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteVideoButtonActionPerformed(evt);
+            }
+        });
+        jPanel6.add(deleteVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
+
+        addNewVideoList.setBackground(new java.awt.Color(203, 216, 243));
+        addNewVideoList.setForeground(new java.awt.Color(147, 62, 197));
+        addNewVideoList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        addNewVideoList.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        addNewVideoList.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane7.setViewportView(addNewVideoList);
+
+        jPanel6.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 299, 281));
+
+        label14.setForeground(new java.awt.Color(147, 62, 197));
+        label14.setText("Artists & bands");
+        jPanel6.add(label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
+
+        label15.setForeground(new java.awt.Color(147, 62, 197));
+        label15.setText("ID");
+        jPanel6.add(label15, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, -1, -1));
+
+        idVideoTextField.setForeground(new java.awt.Color(204, 0, 204));
+        idVideoTextField.setToolTipText("ID");
+        idVideoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idVideoTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel6.add(idVideoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 70, 178, -1));
+
+        label16.setForeground(new java.awt.Color(147, 62, 197));
+        label16.setText("Title");
+        jPanel6.add(label16, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, -1, -1));
+
+        nameVideoTextField.setForeground(new java.awt.Color(204, 0, 204));
+        nameVideoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameVideoTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel6.add(nameVideoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, 178, -1));
+
+        label17.setForeground(new java.awt.Color(147, 62, 197));
+        label17.setText("Category");
+        jPanel6.add(label17, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, -1, -1));
+
+        categoryVideoTextField.setForeground(new java.awt.Color(204, 0, 204));
+        categoryVideoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoryVideoTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel6.add(categoryVideoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 200, 178, -1));
+
+        label18.setForeground(new java.awt.Color(147, 62, 197));
+        label18.setText("URL");
+        jPanel6.add(label18, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, -1, -1));
+
+        urlVideoTextField.setForeground(new java.awt.Color(204, 0, 204));
+        urlVideoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                urlVideoTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel6.add(urlVideoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 270, 178, -1));
+
+        label19.setForeground(new java.awt.Color(147, 62, 197));
+        label19.setText("Year");
+        jPanel6.add(label19, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, -1, -1));
+
+        yearVideoTextField.setForeground(new java.awt.Color(204, 0, 204));
+        yearVideoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearVideoTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel6.add(yearVideoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, 59, -1));
+
+        addNewVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
+        addNewVideoButton.setContentAreaFilled(false);
+        addNewVideoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNewVideoButtonActionPerformed(evt);
+            }
+        });
+        jPanel6.add(addNewVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 420, -1, -1));
+
+        addVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
+        addVideoButton.setContentAreaFilled(false);
+        jPanel6.add(addVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, -1, -1));
+
+        jTabbedPane7.addTab("Video", jPanel6);
 
         getContentPane().add(jTabbedPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 556));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+    private void idPlaylistTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idPlaylistTextfieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
+    }//GEN-LAST:event_idPlaylistTextfieldActionPerformed
 
-    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
+    private void namePlaylistTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namePlaylistTextfieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField21ActionPerformed
+    }//GEN-LAST:event_namePlaylistTextfieldActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void createPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPlaylistButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_createPlaylistButtonActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void deleteVideoFromPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoFromPlaylistButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_deleteVideoFromPlaylistButtonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void deleteVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_deleteVideoButtonActionPerformed
 
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+    private void idVideoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idVideoTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
+    }//GEN-LAST:event_idVideoTextFieldActionPerformed
 
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+    private void nameVideoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameVideoTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
+    }//GEN-LAST:event_nameVideoTextFieldActionPerformed
 
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+    private void categoryVideoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryVideoTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
+    }//GEN-LAST:event_categoryVideoTextFieldActionPerformed
 
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+    private void urlVideoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_urlVideoTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
+    }//GEN-LAST:event_urlVideoTextFieldActionPerformed
 
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+    private void yearVideoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearVideoTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
+    }//GEN-LAST:event_yearVideoTextFieldActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void addNewVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewVideoButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_addNewVideoButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void deleteArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_deleteArtistButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        artistBiz.insertArtist(jTextField1.getText().toString(), jTextField3.getText().toString(),  jTextField2.getText().toString(), jTextField4.getText().toString(), "USA", "1995/09/25");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void addArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArtistButtonActionPerformed
+        artistBiz.insertArtist(idArtistTextField.getText().toString(), firstNameTextField.getText().toString(),  lastNameTextField.getText().toString(), nicknameTextField.getText().toString(), "USA", "1995/09/25");
+    }//GEN-LAST:event_addArtistButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void idArtistTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idArtistTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_idArtistTextFieldActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void lastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_lastNameTextFieldActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_firstNameTextFieldActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void nicknameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nicknameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_nicknameTextFieldActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void idBandTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idBandTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_idBandTextFieldActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void bandNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bandNameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_bandNameTextFieldActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void countryBandTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryBandTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_countryBandTextFieldActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void createBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBandButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_createBandButtonActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void deleteBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_deleteBandButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -909,23 +897,34 @@ public class Crud extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
-    private javax.swing.JList<String> jList4;
-    private javax.swing.JList<String> jList5;
-    private javax.swing.JList<String> jList6;
+    private javax.swing.JButton addArtistButton;
+    private javax.swing.JButton addBandButton;
+    private javax.swing.JButton addNewVideoButton;
+    private javax.swing.JList<String> addNewVideoList;
+    private javax.swing.JButton addVideoButton;
+    private javax.swing.JList<String> addVideoList;
+    private javax.swing.JButton addVideoToPlaylistButton;
+    private javax.swing.JList<String> artistBandList;
+    private javax.swing.JList<String> artistList;
+    private javax.swing.JTextField bandNameTextField;
+    private javax.swing.JTable bandsTable;
+    private javax.swing.JTextField categoryVideoTextField;
+    private javax.swing.JTextField countryBandTextField;
+    private javax.swing.JButton createBandButton;
+    private javax.swing.JButton createPlaylistButton;
+    private javax.swing.JComboBox<String> dayBandComboBox;
+    private javax.swing.JComboBox<String> dayComboBox;
+    private javax.swing.JButton deleteArtistButton;
+    private javax.swing.JTable deleteArtistTable;
+    private javax.swing.JButton deleteBandButton;
+    private javax.swing.JButton deleteVideoButton;
+    private javax.swing.JButton deleteVideoFromPlaylistButton;
+    private javax.swing.JList<String> deleteVideoList;
+    private javax.swing.JTextField firstNameTextField;
+    private javax.swing.JTextField idArtistTextField;
+    private javax.swing.JTextField idBandTextField;
+    private javax.swing.JTextField idPlaylistTextfield;
+    private javax.swing.JTextField idVideoTextField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -942,30 +941,6 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane7;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private java.awt.Label label1;
     private java.awt.Label label10;
     private java.awt.Label label11;
@@ -988,5 +963,18 @@ public class Crud extends javax.swing.JFrame {
     private java.awt.Label label6;
     private java.awt.Label label7;
     private java.awt.Label label8;
+    private javax.swing.JTextField lastNameTextField;
+    private javax.swing.JList<String> membersList;
+    private javax.swing.JComboBox<String> monthBandComboBox;
+    private javax.swing.JComboBox<String> monthComboBox;
+    private javax.swing.JTextField namePlaylistTextfield;
+    private javax.swing.JTextField nameVideoTextField;
+    private javax.swing.JTextField nicknameTextField;
+    private javax.swing.JTable playlistTable;
+    private javax.swing.JTextField urlVideoTextField;
+    private javax.swing.JTable videoTable;
+    private javax.swing.JComboBox<String> yearBandComboBox;
+    private javax.swing.JComboBox<String> yearComboBox;
+    private javax.swing.JTextField yearVideoTextField;
     // End of variables declaration//GEN-END:variables
 }
