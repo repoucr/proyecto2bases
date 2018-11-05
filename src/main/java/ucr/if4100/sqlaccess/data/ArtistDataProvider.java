@@ -122,7 +122,7 @@ public class ArtistDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String updateArtistStm = String.format("UPDATE ARTIST SET firstName = '%s',SET lastName = '%s',SET nickname = '%s',SET nationality = '%s',SET birthday = '%s'WHERE ID = '%s'",
+            String updateArtistStm = String.format("UPDATE ARTIST SET firstName = '%s', lastName = '%s', nickname = '%s', nationality = '%s', birthday = '%s'WHERE ID = '%s'",
                  
                      updatedArtist.getFirstName(),
                      updatedArtist.getLastName(),
