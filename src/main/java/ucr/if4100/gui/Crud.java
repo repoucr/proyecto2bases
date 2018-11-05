@@ -129,9 +129,8 @@ public class Crud extends javax.swing.JFrame {
 
         jTabbedPane7.setBackground(new java.awt.Color(51, 0, 51));
 
-        jPanel5.setBackground(new java.awt.Color(203, 216, 243));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        playlistTable.setBackground(new java.awt.Color(203, 216, 243));
         playlistTable.setForeground(new java.awt.Color(204, 0, 204));
         playlistTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -155,7 +154,7 @@ public class Crud extends javax.swing.JFrame {
                 "ID", "Name"
             }
         ));
-        playlistTable.setGridColor(new java.awt.Color(255, 255, 255));
+        playlistTable.setGridColor(new java.awt.Color(213, 213, 213));
         playlistTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         playlistTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
         jScrollPane8.setViewportView(playlistTable);
@@ -163,7 +162,6 @@ public class Crud extends javax.swing.JFrame {
         label20.setForeground(new java.awt.Color(147, 62, 197));
         label20.setText("Video(s)");
 
-        addVideoList.setBackground(new java.awt.Color(203, 216, 243));
         addVideoList.setForeground(new java.awt.Color(147, 62, 197));
         addVideoList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -218,7 +216,6 @@ public class Crud extends javax.swing.JFrame {
             }
         });
 
-        deleteVideoList.setBackground(new java.awt.Color(203, 216, 243));
         deleteVideoList.setForeground(new java.awt.Color(147, 62, 197));
         deleteVideoList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -297,10 +294,9 @@ public class Crud extends javax.swing.JFrame {
 
         jTabbedPane7.addTab("Playlist", jPanel5);
 
-        jPanel4.setBackground(new java.awt.Color(203, 216, 243));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bandsTable.setBackground(new java.awt.Color(204, 204, 204));
         bandsTable.setForeground(new java.awt.Color(204, 0, 204));
         bandsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -324,7 +320,7 @@ public class Crud extends javax.swing.JFrame {
                 "ID", "Name", "Country"
             }
         ));
-        bandsTable.setGridColor(new java.awt.Color(255, 255, 255));
+        bandsTable.setGridColor(new java.awt.Color(213, 213, 213));
         bandsTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         bandsTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
         jScrollPane2.setViewportView(bandsTable);
@@ -390,7 +386,6 @@ public class Crud extends javax.swing.JFrame {
         });
         jPanel4.add(deleteBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
-        membersList.setBackground(new java.awt.Color(203, 216, 243));
         membersList.setForeground(new java.awt.Color(147, 62, 197));
         membersList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -407,7 +402,6 @@ public class Crud extends javax.swing.JFrame {
         label11.setText("Members");
         jPanel4.add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
-        artistBandList.setBackground(new java.awt.Color(203, 216, 243));
         artistBandList.setForeground(new java.awt.Color(147, 62, 197));
         artistBandList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -439,9 +433,8 @@ public class Crud extends javax.swing.JFrame {
 
         jTabbedPane7.addTab("Band", jPanel4);
 
-        jPanel3.setBackground(new java.awt.Color(203, 216, 243));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        deleteArtistTable.setBackground(new java.awt.Color(203, 216, 243));
         deleteArtistTable.setForeground(new java.awt.Color(204, 0, 204));
         deleteArtistTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -472,7 +465,7 @@ public class Crud extends javax.swing.JFrame {
                 "ID", "First name", "Last name", "Nickname", "Birthday"
             }
         ));
-        deleteArtistTable.setGridColor(new java.awt.Color(255, 255, 255));
+        deleteArtistTable.setGridColor(new java.awt.Color(213, 213, 213));
         deleteArtistTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         deleteArtistTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
         jScrollPane1.setViewportView(deleteArtistTable);
@@ -615,10 +608,9 @@ public class Crud extends javax.swing.JFrame {
 
         jTabbedPane7.addTab("Artist", jPanel3);
 
-        jPanel6.setBackground(new java.awt.Color(203, 216, 243));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        videoTable.setBackground(new java.awt.Color(203, 216, 243));
         videoTable.setForeground(new java.awt.Color(204, 0, 204));
         videoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -642,14 +634,13 @@ public class Crud extends javax.swing.JFrame {
                 "ID", "Title", "URL"
             }
         ));
-        videoTable.setGridColor(new java.awt.Color(255, 255, 255));
+        videoTable.setGridColor(new java.awt.Color(213, 213, 213));
         videoTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         videoTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
         jScrollPane5.setViewportView(videoTable);
 
         jPanel6.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 301, 202));
 
-        artistList.setBackground(new java.awt.Color(203, 216, 243));
         artistList.setForeground(new java.awt.Color(147, 62, 197));
         artistList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -675,8 +666,7 @@ public class Crud extends javax.swing.JFrame {
         });
         jPanel6.add(deleteVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
 
-        addNewVideoList.setBackground(new java.awt.Color(203, 216, 243));
-        addNewVideoList.setForeground(new java.awt.Color(147, 62, 197));
+        addNewVideoList.setForeground(new java.awt.Color(142, 67, 197));
         addNewVideoList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
