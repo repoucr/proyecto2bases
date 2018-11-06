@@ -5,37 +5,36 @@
  */
 package ucr.if4100.sqlaccess.business.concrete;
 
+import java.util.List;
+import ucr.if4100.domain.Members;
+import ucr.if4100.sqlaccess.data.MemberDataProvider;
+
+
+
 /**
  *
  * @author fabian
  */
 public class MemberBiz {
     
-    private BandDataProvider _dataProvider;
+    private MemberDataProvider _dataProvider;
     
-    public BandBiz(){
-        this._dataProvider = new BandDataProvider();
+    public MemberBiz(){
+        this._dataProvider = new MemberDataProvider();
     }
     
  
-    public List<Band> getBand() {
-        return this._dataProvider.getBand();
+    public List<Members> getMembers(String id) {
+        return this._dataProvider.getMember(id);
     }
 
    
-    public Boolean insertBand(String id, String name, String foundationDate, String country) {
-        Band newBand = new Band(id, name, foundationDate, country);
-        return _dataProvider.insertBand(newBand);
+    public Boolean insertMembers(String artistID, String bandID) {
+        Members newMembers = new Members(artistID, bandID);
+        return _dataProvider.insertMember(newMembers);
     }
-
-   
-    public Boolean updateBand(String id, String name, String foundationDate, String country) {
-        Band newBand = new Band(id, name, foundationDate, country);
-        return _dataProvider.updateBand(newBand);
-    }
-
  
-    public Boolean deleteBand(String id) {
-        return _dataProvider.deleteBand(id);
+    public Boolean deleteMembers(String id) {
+        return _dataProvider.deleteMember(id);
     }
 }

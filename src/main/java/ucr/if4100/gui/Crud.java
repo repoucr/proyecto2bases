@@ -4,16 +4,19 @@
  * and open the template in the editor.
  */
 package ucr.if4100.gui;
+
 import java.util.List;
 import ucr.if4100.domain.Artist;
 import ucr.if4100.domain.Band;
+import ucr.if4100.domain.Members;
 import ucr.if4100.sqlaccess.business.concrete.ArtistBiz;
 import ucr.if4100.sqlaccess.business.concrete.BandBiz;
+import ucr.if4100.sqlaccess.business.concrete.MemberBiz;
 import ucr.if4100.sqlaccess.business.interfaces.IArtistBiz;
 
 /**
  *
- * 
+ *
  */
 public class Crud extends javax.swing.JFrame {
 
@@ -22,56 +25,75 @@ public class Crud extends javax.swing.JFrame {
      */
     ArtistBiz artistBiz = new ArtistBiz();
     BandBiz bandBiz = new BandBiz();
-    MemberBiz
-    
+    MemberBiz memberBiz = new MemberBiz();
+
     public Crud() {
         initComponents();
-         fillArtistTable();
-         fillArtistListBandTable();
-         fillBandTable();
-         jButton1.setEnabled(false);
-         refreshBandButton.setEnabled(false);
-         
+        fillArtistTable();
+        fillArtistListBandTable();
+        fillBandTable();
+        jButton1.setEnabled(false);
+        refreshBandButton.setEnabled(false);
+
     }
 
-    public void fillArtistTable(){
+    public void fillArtistTable() {
         List<Artist> artist = artistBiz.getArtists();
-        String [][] arrayTableArtist = new String[artist.size()][6];  
+        String[][] arrayTableArtist = new String[artist.size()][6];
         for (int i = 0; i < artist.size(); i++) {
-            arrayTableArtist [i][0] = artist.get(i).getId();
-            arrayTableArtist [i][1] = artist.get(i).getFirstName();
-            arrayTableArtist [i][2] = artist.get(i).getLastName();
-            arrayTableArtist [i][3] = artist.get(i).getNickName();
-            arrayTableArtist [i][4] = artist.get(i).getNationality();
-            arrayTableArtist [i][5] = artist.get(i).getBirthday();
+            arrayTableArtist[i][0] = artist.get(i).getId();
+            arrayTableArtist[i][1] = artist.get(i).getFirstName();
+            arrayTableArtist[i][2] = artist.get(i).getLastName();
+            arrayTableArtist[i][3] = artist.get(i).getNickName();
+            arrayTableArtist[i][4] = artist.get(i).getNationality();
+            arrayTableArtist[i][5] = artist.get(i).getBirthday();
             deleteArtistTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableArtist, new String[]{"ID", "First Name", "Last Name", "Nickname", "Nationality", "Birthday"}));
         }
     }
-    
+
     private void fillBandTable() {
         List<Band> band = bandBiz.getBand();
-        String [][] arrayTableBand = new String[band.size()][4]; 
+        String[][] arrayTableBand = new String[band.size()][4];
         for (int i = 0; i < band.size(); i++) {
-            arrayTableBand [i][0] = band.get(i).getId();
-            arrayTableBand [i][1] = band.get(i).getName();
-            arrayTableBand [i][2] = band.get(i).getCountry();
-            arrayTableBand [i][3] = band.get(i).getFoundationDate();
+            arrayTableBand[i][0] = band.get(i).getId();
+            arrayTableBand[i][1] = band.get(i).getName();
+            arrayTableBand[i][2] = band.get(i).getCountry();
+            arrayTableBand[i][3] = band.get(i).getFoundationDate();
             bandsTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableBand, new String[]{"ID", "Name", "Country", "Fundation Date"}));
         }
     }
-    
-    private void fillArtistListBandTable(){
+
+    private void fillArtistListBandTable() {
         List<Artist> artist = artistBiz.getArtists();
-        String [][] arrayTableArtist = new String[artist.size()][4];  
+        String[][] arrayTableArtist = new String[artist.size()][4];
         for (int i = 0; i < artist.size(); i++) {
-            arrayTableArtist [i][0] = artist.get(i).getId();
-            arrayTableArtist [i][1] = artist.get(i).getFirstName();
-            arrayTableArtist [i][2] = artist.get(i).getLastName();
-            arrayTableArtist [i][3] = artist.get(i).getNickName();
-            
+            arrayTableArtist[i][0] = artist.get(i).getId();
+            arrayTableArtist[i][1] = artist.get(i).getFirstName();
+            arrayTableArtist[i][2] = artist.get(i).getLastName();
+            arrayTableArtist[i][3] = artist.get(i).getNickName();
+
             artistListBandTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableArtist, new String[]{"ID", "First Name", "Last Name", "Nickname"}));
         }
     }
+
+    private void fillBandMembersTable(String id) {
+        List<Members> members = memberBiz.getMembers(id);
+        String[][] arrayTableArtist = new String[members.size()][4];
+        for (int i = 0; i < members.size(); i++) {
+            List<Artist> artist = artistBiz.getArtists();
+            for (int j = 0; j < artist.size(); j++) {
+                if (members.get(i).getArtistID().equals(artist.get(j).getId())) {
+                arrayTableArtist[i][0] = artist.get(i).getId();
+                arrayTableArtist[i][1] = artist.get(i).getFirstName();
+                arrayTableArtist[i][2] = artist.get(i).getLastName();
+                arrayTableArtist[i][3] = artist.get(i).getNickName();
+                }
+             
+            }
+            bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableArtist, new String[]{"ID", "First Name", "Last Name", "Nickname"}));
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -262,6 +284,11 @@ public class Crud extends javax.swing.JFrame {
 
         addVideoToPlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
         addVideoToPlaylistButton.setContentAreaFilled(false);
+        addVideoToPlaylistButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addVideoToPlaylistButtonActionPerformed(evt);
+            }
+        });
 
         createPlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
         createPlaylistButton.setContentAreaFilled(false);
@@ -477,7 +504,7 @@ public class Crud extends javax.swing.JFrame {
                 deleteBandButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(deleteBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, -1, -1));
+        jPanel4.add(deleteBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, -1, -1));
 
         label11.setForeground(new java.awt.Color(147, 62, 197));
         label11.setText("Members");
@@ -521,7 +548,7 @@ public class Crud extends javax.swing.JFrame {
 
         deleteBandMemberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
         deleteBandMemberButton.setContentAreaFilled(false);
-        jPanel4.add(deleteBandMemberButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, 50));
+        jPanel4.add(deleteBandMemberButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, 50));
 
         bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -537,7 +564,7 @@ public class Crud extends javax.swing.JFrame {
         bandMembersTable.setFillsViewportHeight(true);
         jScrollPane11.setViewportView(bandMembersTable);
 
-        jPanel4.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 300, 100));
+        jPanel4.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 300, 100));
 
         artistListBandTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1011,19 +1038,19 @@ public class Crud extends javax.swing.JFrame {
         idArtistTextField.setText("");
         firstNameTextField.setText("");
         lastNameTextField.setText("");
-        nicknameTextField.setText("");     
+        nicknameTextField.setText("");
         countryTextField.setText("");
         birthdayTextField.setText("");
     }//GEN-LAST:event_deleteArtistButtonActionPerformed
 
     private void addArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArtistButtonActionPerformed
-        artistBiz.insertArtist(idArtistTextField.getText().toString(), firstNameTextField.getText().toString(),  lastNameTextField.getText().toString(), nicknameTextField.getText().toString(), countryTextField.getText().toString(), birthdayTextField.getText().toString());
+        artistBiz.insertArtist(idArtistTextField.getText().toString(), firstNameTextField.getText().toString(), lastNameTextField.getText().toString(), nicknameTextField.getText().toString(), countryTextField.getText().toString(), birthdayTextField.getText().toString());
         fillArtistTable();
         fillArtistListBandTable();
         idArtistTextField.setText("");
         firstNameTextField.setText("");
         lastNameTextField.setText("");
-        nicknameTextField.setText("");     
+        nicknameTextField.setText("");
         countryTextField.setText("");
         birthdayTextField.setText("");
     }//GEN-LAST:event_addArtistButtonActionPerformed
@@ -1058,7 +1085,7 @@ public class Crud extends javax.swing.JFrame {
 
     private void createBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBandButtonActionPerformed
 
-        bandBiz.insertBand(idBandTextField.getText(), bandNameTextField.getText(), foundationDateTextField.getText(),countryBandTextField.getText());
+        bandBiz.insertBand(idBandTextField.getText(), bandNameTextField.getText(), foundationDateTextField.getText(), countryBandTextField.getText());
         idBandTextField.setText("");
         bandNameTextField.setText("");
         countryBandTextField.setText("");
@@ -1079,11 +1106,12 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteBandButtonActionPerformed
 
     private void addBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBandButtonActionPerformed
-        
+        memberBiz.insertMembers(artistListBandTable.getValueAt(artistListBandTable.getSelectedRow(), 0).toString(), idBandTextField.getText().toString());
+        fillBandMembersTable();
     }//GEN-LAST:event_addBandButtonActionPerformed
 
     private void jTabbedPane7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane7MouseClicked
-       
+
     }//GEN-LAST:event_jTabbedPane7MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
@@ -1091,19 +1119,19 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        artistBiz.updateArtist(idArtistTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText(), nicknameTextField.getText(), countryTextField.getText(),birthdayTextField.getText());
+        artistBiz.updateArtist(idArtistTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText(), nicknameTextField.getText(), countryTextField.getText(), birthdayTextField.getText());
         fillArtistTable();
         fillArtistListBandTable();
         idArtistTextField.setText("");
         firstNameTextField.setText("");
         lastNameTextField.setText("");
-        nicknameTextField.setText("");     
+        nicknameTextField.setText("");
         countryTextField.setText("");
         birthdayTextField.setText("");
         idArtistTextField.setEnabled(true);
         addArtistButton.setEnabled(true);
         jButton1.setEnabled(false);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void deleteArtistTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteArtistTableMouseClicked
@@ -1116,7 +1144,7 @@ public class Crud extends javax.swing.JFrame {
         birthdayTextField.setText(deleteArtistTable.getValueAt(deleteArtistTable.getSelectedRow(), 5).toString());
         idArtistTextField.setEnabled(false);
         addArtistButton.setEnabled(false);
-      
+
     }//GEN-LAST:event_deleteArtistTableMouseClicked
 
     private void cleanArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanArtistButtonActionPerformed
@@ -1124,7 +1152,7 @@ public class Crud extends javax.swing.JFrame {
         idArtistTextField.setText("");
         firstNameTextField.setText("");
         lastNameTextField.setText("");
-        nicknameTextField.setText("");     
+        nicknameTextField.setText("");
         countryTextField.setText("");
         birthdayTextField.setText("");
         idArtistTextField.setEnabled(true);
@@ -1137,19 +1165,19 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_cleanVideoButtonActionPerformed
 
     private void cleanBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanBandButtonActionPerformed
-       
-       idBandTextField.setEnabled(true);
-       idBandTextField.setText("");
-       bandNameTextField.setText("");
-       countryBandTextField.setText("");
-       foundationDateTextField.setText("");
-       refreshBandButton.setEnabled(false);
-       createBandButton.setEnabled(true);
-       
+
+        idBandTextField.setEnabled(true);
+        idBandTextField.setText("");
+        bandNameTextField.setText("");
+        countryBandTextField.setText("");
+        foundationDateTextField.setText("");
+        refreshBandButton.setEnabled(false);
+        createBandButton.setEnabled(true);
+
     }//GEN-LAST:event_cleanBandButtonActionPerformed
 
     private void refreshBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBandButtonActionPerformed
-        bandBiz.updateBand(idBandTextField.getText(),  bandNameTextField.getText(),foundationDateTextField.getText(), countryBandTextField.getText());
+        bandBiz.updateBand(idBandTextField.getText(), bandNameTextField.getText(), foundationDateTextField.getText(), countryBandTextField.getText());
         idBandTextField.setEnabled(true);
         idBandTextField.setText("");
         bandNameTextField.setText("");
@@ -1169,18 +1197,23 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshPlaylistButton1ActionPerformed
 
     private void bandsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bandsTableMouseClicked
-       idBandTextField.setEnabled(false);
-       idBandTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
-       bandNameTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 1).toString());
-       countryBandTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 2).toString());
-       foundationDateTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 3).toString());
-       refreshBandButton.setEnabled(true);
-       createBandButton.setEnabled(false);
+        fillBandMembersTable(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
+        idBandTextField.setEnabled(false);
+        idBandTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
+        bandNameTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 1).toString());
+        countryBandTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 2).toString());
+        foundationDateTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 3).toString());
+        refreshBandButton.setEnabled(true);
+        createBandButton.setEnabled(false);
     }//GEN-LAST:event_bandsTableMouseClicked
 
     private void deleteVideoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteVideoButton1ActionPerformed
+
+    private void addVideoToPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoToPlaylistButtonActionPerformed
+
+    }//GEN-LAST:event_addVideoToPlaylistButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1307,5 +1340,4 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JTextField yearVideoTextField;
     // End of variables declaration//GEN-END:variables
 
-  
 }
