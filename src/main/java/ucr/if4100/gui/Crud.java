@@ -22,12 +22,15 @@ public class Crud extends javax.swing.JFrame {
      */
     ArtistBiz artistBiz = new ArtistBiz();
     BandBiz bandBiz = new BandBiz();
+    MemberBiz
     
     public Crud() {
         initComponents();
          fillArtistTable();
+         fillArtistListBandTable();
          fillBandTable();
          jButton1.setEnabled(false);
+         refreshBandButton.setEnabled(false);
          
     }
 
@@ -55,8 +58,19 @@ public class Crud extends javax.swing.JFrame {
             arrayTableBand [i][3] = band.get(i).getFoundationDate();
             bandsTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableBand, new String[]{"ID", "Name", "Country", "Fundation Date"}));
         }
-        
-        
+    }
+    
+    private void fillArtistListBandTable(){
+        List<Artist> artist = artistBiz.getArtists();
+        String [][] arrayTableArtist = new String[artist.size()][4];  
+        for (int i = 0; i < artist.size(); i++) {
+            arrayTableArtist [i][0] = artist.get(i).getId();
+            arrayTableArtist [i][1] = artist.get(i).getFirstName();
+            arrayTableArtist [i][2] = artist.get(i).getLastName();
+            arrayTableArtist [i][3] = artist.get(i).getNickName();
+            
+            artistListBandTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableArtist, new String[]{"ID", "First Name", "Last Name", "Nickname"}));
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -99,16 +113,17 @@ public class Crud extends javax.swing.JFrame {
         label10 = new java.awt.Label();
         createBandButton = new javax.swing.JButton();
         deleteBandButton = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        membersList = new javax.swing.JList<>();
         label11 = new java.awt.Label();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        artistBandList = new javax.swing.JList<>();
         addBandButton = new javax.swing.JButton();
         label12 = new java.awt.Label();
         foundationDateTextField = new javax.swing.JTextField();
         cleanBandButton = new javax.swing.JButton();
         refreshBandButton = new javax.swing.JButton();
+        deleteBandMemberButton = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        bandMembersTable = new javax.swing.JTable();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        artistListBandTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         deleteArtistTable = new javax.swing.JTable();
@@ -134,7 +149,7 @@ public class Crud extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         artistList = new javax.swing.JList<>();
         label13 = new java.awt.Label();
-        deleteVideoButton = new javax.swing.JButton();
+        deleteArtistVideoButton = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         addNewVideoList = new javax.swing.JList<>();
         label14 = new java.awt.Label();
@@ -152,6 +167,7 @@ public class Crud extends javax.swing.JFrame {
         addVideoButton = new javax.swing.JButton();
         cleanVideoButton = new javax.swing.JButton();
         refreshPlaylistButton1 = new javax.swing.JButton();
+        deleteVideoButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -390,9 +406,15 @@ public class Crud extends javax.swing.JFrame {
                 "ID", "Name", "Country", "Fundation Date"
             }
         ));
+        bandsTable.setFillsViewportHeight(true);
         bandsTable.setGridColor(new java.awt.Color(213, 213, 213));
         bandsTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         bandsTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        bandsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bandsTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(bandsTable);
 
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 301, 202));
@@ -455,35 +477,11 @@ public class Crud extends javax.swing.JFrame {
                 deleteBandButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(deleteBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, -1));
-
-        membersList.setForeground(new java.awt.Color(147, 62, 197));
-        membersList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        membersList.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        membersList.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane3.setViewportView(membersList);
-
-        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 301, 107));
+        jPanel4.add(deleteBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, -1, -1));
 
         label11.setForeground(new java.awt.Color(147, 62, 197));
         label11.setText("Members");
         jPanel4.add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
-
-        artistBandList.setForeground(new java.awt.Color(147, 62, 197));
-        artistBandList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        artistBandList.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        artistBandList.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane4.setViewportView(artistBandList);
-
-        jPanel4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 299, 281));
 
         addBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
         addBandButton.setContentAreaFilled(false);
@@ -492,11 +490,11 @@ public class Crud extends javax.swing.JFrame {
                 addBandButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(addBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, -1, -1));
+        jPanel4.add(addBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, -1, -1));
 
         label12.setForeground(new java.awt.Color(147, 62, 197));
         label12.setText("Artists ");
-        jPanel4.add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
+        jPanel4.add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, -1));
 
         foundationDateTextField.setForeground(new java.awt.Color(204, 0, 204));
         foundationDateTextField.setToolTipText("");
@@ -520,6 +518,42 @@ public class Crud extends javax.swing.JFrame {
             }
         });
         jPanel4.add(refreshBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, -1, -1));
+
+        deleteBandMemberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deleteBandMemberButton.setContentAreaFilled(false);
+        jPanel4.add(deleteBandMemberButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, 50));
+
+        bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "First Name", "Last Name", "Nickname"
+            }
+        ));
+        bandMembersTable.setFillsViewportHeight(true);
+        jScrollPane11.setViewportView(bandMembersTable);
+
+        jPanel4.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 300, 100));
+
+        artistListBandTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "First Name", "Last Name", "Nickname"
+            }
+        ));
+        artistListBandTable.setFillsViewportHeight(true);
+        jScrollPane13.setViewportView(artistListBandTable);
+
+        jPanel4.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 300, 340));
 
         jTabbedPane7.addTab("Band", jPanel4);
 
@@ -560,6 +594,7 @@ public class Crud extends javax.swing.JFrame {
                 "ID", "First name", "Last name", "Nickname", "Nationality", "Birthday"
             }
         ));
+        deleteArtistTable.setFillsViewportHeight(true);
         deleteArtistTable.setGridColor(new java.awt.Color(213, 213, 213));
         deleteArtistTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         deleteArtistTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
@@ -659,11 +694,15 @@ public class Crud extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteArtistButton))
-                .addGap(130, 130, 130)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(130, 130, 130))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(deleteArtistButton)
+                        .addGap(108, 108, 108)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -723,12 +762,15 @@ public class Crud extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(birthdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(deleteArtistButton)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(addArtistButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(addArtistButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteArtistButton)))
                 .addGap(0, 69, Short.MAX_VALUE))
         );
 
@@ -780,17 +822,17 @@ public class Crud extends javax.swing.JFrame {
         jPanel6.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 301, 107));
 
         label13.setForeground(new java.awt.Color(147, 62, 197));
-        label13.setText("Artist(s)");
+        label13.setText("Artists & Bands ");
         jPanel6.add(label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
-        deleteVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
-        deleteVideoButton.setContentAreaFilled(false);
-        deleteVideoButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteArtistVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deleteArtistVideoButton.setContentAreaFilled(false);
+        deleteArtistVideoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteVideoButtonActionPerformed(evt);
+                deleteArtistVideoButtonActionPerformed(evt);
             }
         });
-        jPanel6.add(deleteVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
+        jPanel6.add(deleteArtistVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, -1, -1));
 
         addNewVideoList.setForeground(new java.awt.Color(142, 67, 197));
         addNewVideoList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -880,7 +922,7 @@ public class Crud extends javax.swing.JFrame {
 
         addVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
         addVideoButton.setContentAreaFilled(false);
-        jPanel6.add(addVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, -1, -1));
+        jPanel6.add(addVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, -1, -1));
 
         cleanVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sweep.png"))); // NOI18N
         cleanVideoButton.setContentAreaFilled(false);
@@ -900,6 +942,15 @@ public class Crud extends javax.swing.JFrame {
             }
         });
         jPanel6.add(refreshPlaylistButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 370, -1, -1));
+
+        deleteVideoButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deleteVideoButton1.setContentAreaFilled(false);
+        deleteVideoButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteVideoButton1ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(deleteVideoButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
 
         jTabbedPane7.addTab("Video", jPanel6);
 
@@ -924,9 +975,9 @@ public class Crud extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteVideoFromPlaylistButtonActionPerformed
 
-    private void deleteVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButtonActionPerformed
+    private void deleteArtistVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistVideoButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteVideoButtonActionPerformed
+    }//GEN-LAST:event_deleteArtistVideoButtonActionPerformed
 
     private void idVideoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idVideoTextFieldActionPerformed
         // TODO add your handling code here:
@@ -955,6 +1006,7 @@ public class Crud extends javax.swing.JFrame {
     private void deleteArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistButtonActionPerformed
         artistBiz.deleteArtist((deleteArtistTable.getValueAt(deleteArtistTable.getSelectedRow(), 0).toString()));
         fillArtistTable();
+        fillArtistListBandTable();
         idArtistTextField.setEnabled(true);
         idArtistTextField.setText("");
         firstNameTextField.setText("");
@@ -967,6 +1019,7 @@ public class Crud extends javax.swing.JFrame {
     private void addArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArtistButtonActionPerformed
         artistBiz.insertArtist(idArtistTextField.getText().toString(), firstNameTextField.getText().toString(),  lastNameTextField.getText().toString(), nicknameTextField.getText().toString(), countryTextField.getText().toString(), birthdayTextField.getText().toString());
         fillArtistTable();
+        fillArtistListBandTable();
         idArtistTextField.setText("");
         firstNameTextField.setText("");
         lastNameTextField.setText("");
@@ -1005,16 +1058,28 @@ public class Crud extends javax.swing.JFrame {
 
     private void createBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBandButtonActionPerformed
 
-        bandBiz.insertBand(idBandTextField.getText(), bandNameTextField.getText(), countryBandTextField.getText(), foundationDateTextField.getText());
-        
+        bandBiz.insertBand(idBandTextField.getText(), bandNameTextField.getText(), foundationDateTextField.getText(),countryBandTextField.getText());
+        idBandTextField.setText("");
+        bandNameTextField.setText("");
+        countryBandTextField.setText("");
+        foundationDateTextField.setText("");
+        fillBandTable();
     }//GEN-LAST:event_createBandButtonActionPerformed
 
     private void deleteBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandButtonActionPerformed
-        // TODO add your handling code here:
+        bandBiz.deleteBand(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
+        idBandTextField.setEnabled(true);
+        idBandTextField.setText("");
+        bandNameTextField.setText("");
+        countryBandTextField.setText("");
+        foundationDateTextField.setText("");
+        refreshBandButton.setEnabled(false);
+        createBandButton.setEnabled(true);
+        fillBandTable();
     }//GEN-LAST:event_deleteBandButtonActionPerformed
 
     private void addBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBandButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_addBandButtonActionPerformed
 
     private void jTabbedPane7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane7MouseClicked
@@ -1028,6 +1093,7 @@ public class Crud extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         artistBiz.updateArtist(idArtistTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText(), nicknameTextField.getText(), countryTextField.getText(),birthdayTextField.getText());
         fillArtistTable();
+        fillArtistListBandTable();
         idArtistTextField.setText("");
         firstNameTextField.setText("");
         lastNameTextField.setText("");
@@ -1071,11 +1137,27 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_cleanVideoButtonActionPerformed
 
     private void cleanBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanBandButtonActionPerformed
-        // TODO add your handling code here:
+       
+       idBandTextField.setEnabled(true);
+       idBandTextField.setText("");
+       bandNameTextField.setText("");
+       countryBandTextField.setText("");
+       foundationDateTextField.setText("");
+       refreshBandButton.setEnabled(false);
+       createBandButton.setEnabled(true);
+       
     }//GEN-LAST:event_cleanBandButtonActionPerformed
 
     private void refreshBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBandButtonActionPerformed
-        // TODO add your handling code here:
+        bandBiz.updateBand(idBandTextField.getText(),  bandNameTextField.getText(),foundationDateTextField.getText(), countryBandTextField.getText());
+        idBandTextField.setEnabled(true);
+        idBandTextField.setText("");
+        bandNameTextField.setText("");
+        countryBandTextField.setText("");
+        foundationDateTextField.setText("");
+        refreshBandButton.setEnabled(false);
+        createBandButton.setEnabled(true);
+        fillBandTable();
     }//GEN-LAST:event_refreshBandButtonActionPerformed
 
     private void refreshPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPlaylistButtonActionPerformed
@@ -1085,6 +1167,20 @@ public class Crud extends javax.swing.JFrame {
     private void refreshPlaylistButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPlaylistButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_refreshPlaylistButton1ActionPerformed
+
+    private void bandsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bandsTableMouseClicked
+       idBandTextField.setEnabled(false);
+       idBandTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
+       bandNameTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 1).toString());
+       countryBandTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 2).toString());
+       foundationDateTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 3).toString());
+       refreshBandButton.setEnabled(true);
+       createBandButton.setEnabled(false);
+    }//GEN-LAST:event_bandsTableMouseClicked
+
+    private void deleteVideoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteVideoButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1130,8 +1226,9 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JButton addVideoButton;
     private javax.swing.JList<String> addVideoList;
     private javax.swing.JButton addVideoToPlaylistButton;
-    private javax.swing.JList<String> artistBandList;
     private javax.swing.JList<String> artistList;
+    private javax.swing.JTable artistListBandTable;
+    private javax.swing.JTable bandMembersTable;
     private javax.swing.JTextField bandNameTextField;
     private javax.swing.JTable bandsTable;
     private javax.swing.JTextField birthdayTextField;
@@ -1146,8 +1243,10 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JButton createPlaylistButton;
     private javax.swing.JButton deleteArtistButton;
     private javax.swing.JTable deleteArtistTable;
+    private javax.swing.JButton deleteArtistVideoButton;
     private javax.swing.JButton deleteBandButton;
-    private javax.swing.JButton deleteVideoButton;
+    private javax.swing.JButton deleteBandMemberButton;
+    private javax.swing.JButton deleteVideoButton1;
     private javax.swing.JButton deleteVideoFromPlaylistButton;
     private javax.swing.JList<String> deleteVideoList;
     private javax.swing.JTextField firstNameTextField;
@@ -1164,9 +1263,9 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
@@ -1196,7 +1295,6 @@ public class Crud extends javax.swing.JFrame {
     private java.awt.Label label7;
     private java.awt.Label label8;
     private javax.swing.JTextField lastNameTextField;
-    private javax.swing.JList<String> membersList;
     private javax.swing.JTextField namePlaylistTextfield;
     private javax.swing.JTextField nameVideoTextField;
     private javax.swing.JTextField nicknameTextField;

@@ -118,7 +118,7 @@ public class BandDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String updateBandStm = String.format("UPDATE BAND SET name = '%s',SET foundationDate = '%s',SET country = '%s','WHERE ID = '%s'",
+            String updateBandStm = String.format("UPDATE band SET name = '%s', foundationDate = '%s', country = '%s' WHERE ID = '%s'",
                     updatedBand.getName(),
                     updatedBand.getFoundationDate(),
                     updatedBand.getCountry(),
@@ -159,7 +159,7 @@ public class BandDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String deleteBandStm = String.format("DELETE FROM BAND WHERE ID = '%s'", deletedband);
+            String deleteBandStm = String.format("DELETE FROM band WHERE ID = '%s'", deletedband);
 
             deleteBand = conn.prepareStatement(deleteBandStm);
             int updateResult = deleteBand.executeUpdate();
