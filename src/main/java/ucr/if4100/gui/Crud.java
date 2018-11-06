@@ -99,7 +99,7 @@ public class Crud extends javax.swing.JFrame {
 
     private void fillVideoTable() {
         List<Video> video = videoBiz.getVideos();
-        String[][] arrayTableVideo = new String[video.size()][4];
+        String[][] arrayTableVideo = new String[video.size()][5];
         for (int i = 0; i < video.size(); i++) {
             arrayTableVideo[i][0] = video.get(i).getId();
             arrayTableVideo[i][1] = video.get(i).getTitle();
