@@ -1107,7 +1107,7 @@ public class Crud extends javax.swing.JFrame {
 
     private void addBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBandButtonActionPerformed
         memberBiz.insertMembers(artistListBandTable.getValueAt(artistListBandTable.getSelectedRow(), 0).toString(), idBandTextField.getText().toString());
-        fillBandMembersTable();
+        fillBandMembersTable(idBandTextField.getText());
     }//GEN-LAST:event_addBandButtonActionPerformed
 
     private void jTabbedPane7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane7MouseClicked
