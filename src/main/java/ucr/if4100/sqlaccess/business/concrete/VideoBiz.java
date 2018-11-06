@@ -29,14 +29,14 @@ public class VideoBiz implements IVideoBiz {
     }
 
     @Override
-    public Boolean insertVideo(String id, String title, String category, String url,String year) {
-        Video newVideo = new Video(id, title, category, url, year);
+    public Boolean insertVideo(String id, String title, String category,String year, String url) {
+        Video newVideo = new Video(id, title, category, year, url);
         return _dataProvider.insertVideo(newVideo);
     }
 
     @Override
-    public Boolean updateVideo(String id, String title, String category, String url,String year) {
-        Video newVideo = new Video(id, title, category, url, year);
+    public Boolean updateVideo(String id, String title, String category,String year, String url) {
+        Video newVideo = new Video(id, title, category, year, url);
         return _dataProvider.updateVideo(newVideo);
     }
 

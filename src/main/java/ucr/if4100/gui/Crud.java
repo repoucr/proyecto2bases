@@ -35,6 +35,7 @@ public class Crud extends javax.swing.JFrame {
         fillArtistTable();
         fillArtistListBandTable();
         fillBandTable();
+        fillVideoTable();
         jButton1.setEnabled(false);
         refreshBandButton.setEnabled(false);
 
@@ -98,16 +99,16 @@ public class Crud extends javax.swing.JFrame {
     }
 
     private void fillVideoTable() {
-        List<Video> video = videoBiz.getVideos();
-        String[][] arrayTableVideo = new String[video.size()][5];
-        for (int i = 0; i < video.size(); i++) {
-            arrayTableVideo[i][0] = video.get(i).getId();
-            arrayTableVideo[i][1] = video.get(i).getTitle();
-            arrayTableVideo[i][2] = video.get(i).getCategory();
-            arrayTableVideo[i][3] = video.get(i).getUrl();
-            arrayTableVideo[i][4] = video.get(i).getYear();
+        List<Video> videos = videoBiz.getVideos();
+        String[][] arrayTableVideo = new String[videos.size()][5];
+        for (int i = 0; i < videos.size(); i++) {
+            arrayTableVideo[i][0] = videos.get(i).getId();
+            arrayTableVideo[i][1] = videos.get(i).getTitle();
+            arrayTableVideo[i][2] = videos.get(i).getCategory();
+            arrayTableVideo[i][3] = videos.get(i).getUrl();
+            arrayTableVideo[i][4] = videos.get(i).getYear();
 
-            artistListBandTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableVideo, new String[]{"ID", "Title", "Category", "URL", "Year"}));
+            videoTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableVideo, new String[]{"ID", "Title", "Category", "URL", "Year"}));
         }
     }
 
@@ -185,12 +186,8 @@ public class Crud extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         videoTable = new javax.swing.JTable();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        artistList = new javax.swing.JList<>();
         label13 = new java.awt.Label();
         deleteArtistVideoButton = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        addNewVideoList = new javax.swing.JList<>();
         label14 = new java.awt.Label();
         label15 = new java.awt.Label();
         idVideoTextField = new javax.swing.JTextField();
@@ -207,6 +204,10 @@ public class Crud extends javax.swing.JFrame {
         cleanVideoButton = new javax.swing.JButton();
         refreshPlaylistButton1 = new javax.swing.JButton();
         deleteVideoButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -831,24 +832,24 @@ public class Crud extends javax.swing.JFrame {
         videoTable.setForeground(new java.awt.Color(204, 0, 204));
         videoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Title", "URL"
+                "ID", "Title", "URL", "Year"
             }
         ));
         videoTable.setFillsViewportHeight(true);
@@ -856,20 +857,11 @@ public class Crud extends javax.swing.JFrame {
         videoTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         videoTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
         jScrollPane5.setViewportView(videoTable);
+        if (videoTable.getColumnModel().getColumnCount() > 0) {
+            videoTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
-        jPanel6.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 301, 202));
-
-        artistList.setForeground(new java.awt.Color(147, 62, 197));
-        artistList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        artistList.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        artistList.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane6.setViewportView(artistList);
-
-        jPanel6.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 301, 107));
+        jPanel6.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 300, 200));
 
         label13.setForeground(new java.awt.Color(147, 62, 197));
         label13.setText("Artists & Bands ");
@@ -883,18 +875,6 @@ public class Crud extends javax.swing.JFrame {
             }
         });
         jPanel6.add(deleteArtistVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, -1, -1));
-
-        addNewVideoList.setForeground(new java.awt.Color(142, 67, 197));
-        addNewVideoList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        addNewVideoList.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        addNewVideoList.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane7.setViewportView(addNewVideoList);
-
-        jPanel6.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 299, 281));
 
         label14.setForeground(new java.awt.Color(147, 62, 197));
         label14.setText("Artists & bands");
@@ -1006,6 +986,36 @@ public class Crud extends javax.swing.JFrame {
             }
         });
         jPanel6.add(deleteVideoButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
+
+        jPanel6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 300, 110));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable2);
+
+        jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 300, 290));
 
         jTabbedPane7.addTab("Video", jPanel6);
 
@@ -1228,7 +1238,7 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshPlaylistButtonActionPerformed
 
     private void refreshPlaylistButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPlaylistButton1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_refreshPlaylistButton1ActionPerformed
 
     private void bandsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bandsTableMouseClicked
@@ -1304,11 +1314,9 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JButton addArtistButton;
     private javax.swing.JButton addBandButton;
     private javax.swing.JButton addNewVideoButton;
-    private javax.swing.JList<String> addNewVideoList;
     private javax.swing.JButton addVideoButton;
     private javax.swing.JList<String> addVideoList;
     private javax.swing.JButton addVideoToPlaylistButton;
-    private javax.swing.JList<String> artistList;
     private javax.swing.JTable artistListBandTable;
     private javax.swing.JTable bandMembersTable;
     private javax.swing.JTextField bandNameTextField;
@@ -1348,12 +1356,14 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane7;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private java.awt.Label label1;
     private java.awt.Label label10;
     private java.awt.Label label11;
