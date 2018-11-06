@@ -15,15 +15,14 @@ public class Playlist {
     
     private String id;
     private String title;
-    private List videos;
+   
 
     public Playlist() {
     }
 
-    public Playlist(String id, String title, List videos) {
+    public Playlist(String id, String title) {
         this.id = id;
         this.title = title;
-        this.videos = videos;
     }
 
     public String getId() {
@@ -42,19 +41,10 @@ public class Playlist {
         this.title = title;
     }
 
-    public List getVideos() {
-        return videos;
-    }
-
-    public void setVideos(List videos) {
-        this.videos = videos;
-    }
-
     @Override
     public String toString() {
-        return "Playlist{" + "id=" + id + ", title=" + title + ", videos=" + videos + '}';
+        return "Playlist{" + "id=" + id + ", title=" + title + '}';
     }
-
     
     
 }

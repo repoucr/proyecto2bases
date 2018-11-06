@@ -29,7 +29,7 @@ public class PlaylistDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            PreparedStatement getPlaylist = conn.prepareStatement("SELECT ID, title FROM playlist");
+            PreparedStatement getPlaylist = conn.prepareStatement("SELECT ID, name FROM playlist");
 
             queryResult = getPlaylist.executeQuery();
 
@@ -37,7 +37,7 @@ public class PlaylistDataProvider {
                 Playlist playlist = new Playlist();
 
                 playlist.setId(queryResult.getString("ID"));
-                playlist.setTitle(queryResult.getString("title"));
+                playlist.setTitle(queryResult.getString("name"));
                 
 
                 playlists.add(playlist);
@@ -76,7 +76,7 @@ public class PlaylistDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String insertPlaylistStm = String.format("INSERT INTO playlist (ID, title) VALUES ('%s', '%s')",
+            String insertPlaylistStm = String.format("INSERT INTO playlist (ID, name) VALUES ('%s', '%s')",
                      newPlaylist.getId(),
                      newPlaylist.getTitle());
                     
@@ -116,7 +116,7 @@ public class PlaylistDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String updatePlaylistStm = String.format("UPDATE PLAYLIST SET title = '%s'WHERE ID = '%s'",
+            String updatePlaylistStm = String.format("UPDATE PLAYLIST SET name = '%s'WHERE ID = '%s'",
                  
                      updatedPlaylist.getTitle(),
                      updatedPlaylist.getId());

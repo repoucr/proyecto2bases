@@ -17,7 +17,7 @@ public interface IPlaylistBiz {
     
     List<Playlist> getPlaylist();
     
-    Boolean insertBand(String id,String title,List videos);
-    Boolean updateBand(String id,String title,List videos);
-    Boolean deleteBand(String id);
+    Boolean insertPlaylist(String id, String title);
+    Boolean updatePlaylist(String id, String title);
+    Boolean deletePlaylist(String id);
 }

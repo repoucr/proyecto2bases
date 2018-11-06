@@ -8,31 +8,39 @@ package ucr.if4100.sqlaccess.business.concrete;
 import java.util.List;
 import ucr.if4100.domain.Playlist;
 import ucr.if4100.sqlaccess.business.interfaces.IPlaylistBiz;
+import ucr.if4100.sqlaccess.data.PlaylistDataProvider;
 
 /**
  *
- * @author fabian
  */
-public class PlaylistBiz implements IPlaylistBiz{
+public class PlaylistBiz implements IPlaylistBiz {
+
+    private PlaylistDataProvider _dataProvider;
+
+    public PlaylistBiz() {
+        this._dataProvider = new PlaylistDataProvider();
+    }
 
     @Override
     public List<Playlist> getPlaylist() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this._dataProvider.getPlaylist();
     }
 
     @Override
-    public Boolean insertBand(String id, String title, List videos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Boolean insertPlaylist(String id, String title) {
+        Playlist newPlaylist = new Playlist(id, title);
+        return _dataProvider.insertPlaylist(newPlaylist);
     }
 
     @Override
-    public Boolean updateBand(String id, String title, List videos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Boolean updatePlaylist(String id, String title) {
+        Playlist newPlaylist = new Playlist(id, title);
+        return _dataProvider.updatePlaylist(newPlaylist);
     }
 
     @Override
-    public Boolean deleteBand(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Boolean deletePlaylist(String id) {
+        return _dataProvider.deletePlaylist(id);
     }
-    
+
 }
