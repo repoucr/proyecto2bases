@@ -17,7 +17,7 @@ public interface IVideoBiz {
     
     List<Video> getVideos();
     
-    Boolean insertVideo(String id,String title,String category,String url,List artistList);
-    Boolean updateVideo(String id,String title,String category,String url,List artistList);
+    Boolean insertVideo(String id,String title,String category,String url,String year);
+    Boolean updateVideo(String id,String title,String category,String url,String year);
     Boolean deleteVideo(String id);
 }

@@ -548,6 +548,11 @@ public class Crud extends javax.swing.JFrame {
 
         deleteBandMemberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
         deleteBandMemberButton.setContentAreaFilled(false);
+        deleteBandMemberButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBandMemberButtonActionPerformed(evt);
+            }
+        });
         jPanel4.add(deleteBandMemberButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, 50));
 
         bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -1214,6 +1219,10 @@ public class Crud extends javax.swing.JFrame {
     private void addVideoToPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoToPlaylistButtonActionPerformed
 
     }//GEN-LAST:event_addVideoToPlaylistButtonActionPerformed
+
+    private void deleteBandMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandMemberButtonActionPerformed
+        
+    }//GEN-LAST:event_deleteBandMemberButtonActionPerformed
 
     /**
      * @param args the command line arguments
