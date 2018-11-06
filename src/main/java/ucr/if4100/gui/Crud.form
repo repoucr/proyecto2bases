@@ -1215,6 +1215,7 @@
                         <Column editable="true" title="URL" type="java.lang.Object"/>
                       </Table>
                     </Property>
+                    <Property name="fillsViewportHeight" type="boolean" value="true"/>
                     <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="d5" green="d5" red="d5" type="rgb"/>
                     </Property>
@@ -1515,6 +1516,9 @@
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addVideoButtonActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="660" y="340" width="-1" height="-1"/>

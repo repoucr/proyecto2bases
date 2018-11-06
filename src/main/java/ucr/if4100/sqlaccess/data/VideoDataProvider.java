@@ -28,9 +28,9 @@ public class VideoDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            PreparedStatement getArtist = conn.prepareStatement("SELECT ID, title, category, year, url FROM video");
+            PreparedStatement getVideo = conn.prepareStatement("SELECT ID, title, category, year, url FROM video");
 
-            queryResult = getArtist.executeQuery();
+            queryResult = getVideo.executeQuery();
 
             while (queryResult.next()) {
                     Video video = new Video();
@@ -47,13 +47,13 @@ public class VideoDataProvider {
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VideoDataProvider.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (queryResult != null) {
                 try {
                     queryResult.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(VideoDataProvider.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
 
@@ -61,7 +61,7 @@ public class VideoDataProvider {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(ArtistDataProvider.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(VideoDataProvider.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -77,14 +77,14 @@ public class VideoDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String insertArtistStm = String.format("INSERT INTO VIDEO (ID, title, category, year, url) VALUES ('%s', '%s', '%s', '%s', '%s')",
+            String insertVideoStm = String.format("INSERT INTO VIDEO (ID, title, category, year, url) VALUES ('%s', '%s', '%s', '%s', '%s')",
                      newVideo.getId(),
                      newVideo.getTitle(),
                      newVideo.getCategory(),
                      newVideo.getYear(),
                      newVideo.getUrl());
 
-            insertVideo = conn.prepareStatement(insertArtistStm);
+            insertVideo = conn.prepareStatement(insertVideoStm);
             int insertResult = insertVideo.executeUpdate();
             if (insertResult == 1) {
                 wasSuccessfullyInserted = true;
@@ -162,7 +162,7 @@ public class VideoDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String deleteVideoStm = String.format("DELETE FROM ARTIST WHERE ID = '%s'",deletedVideo);
+            String deleteVideoStm = String.format("DELETE FROM VIDEO WHERE ID = '%s'",deletedVideo);
              
             deleteVideo = conn.prepareStatement(deleteVideoStm);
             int updateResult = deleteVideo.executeUpdate();

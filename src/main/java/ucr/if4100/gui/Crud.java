@@ -9,9 +9,11 @@ import java.util.List;
 import ucr.if4100.domain.Artist;
 import ucr.if4100.domain.Band;
 import ucr.if4100.domain.Members;
+import ucr.if4100.domain.Video;
 import ucr.if4100.sqlaccess.business.concrete.ArtistBiz;
 import ucr.if4100.sqlaccess.business.concrete.BandBiz;
 import ucr.if4100.sqlaccess.business.concrete.MemberBiz;
+import ucr.if4100.sqlaccess.business.concrete.VideoBiz;
 import ucr.if4100.sqlaccess.business.interfaces.IArtistBiz;
 
 /**
@@ -26,6 +28,7 @@ public class Crud extends javax.swing.JFrame {
     ArtistBiz artistBiz = new ArtistBiz();
     BandBiz bandBiz = new BandBiz();
     MemberBiz memberBiz = new MemberBiz();
+    VideoBiz videoBiz = new VideoBiz();
 
     public Crud() {
         initComponents();
@@ -83,14 +86,28 @@ public class Crud extends javax.swing.JFrame {
             List<Artist> artist = artistBiz.getArtists();
             for (int j = 0; j < artist.size(); j++) {
                 if (members.get(i).getArtistID().equals(artist.get(j).getId())) {
-                arrayTableArtist[i][0] = artist.get(i).getId();
-                arrayTableArtist[i][1] = artist.get(i).getFirstName();
-                arrayTableArtist[i][2] = artist.get(i).getLastName();
-                arrayTableArtist[i][3] = artist.get(i).getNickName();
+                    arrayTableArtist[i][0] = artist.get(i).getId();
+                    arrayTableArtist[i][1] = artist.get(i).getFirstName();
+                    arrayTableArtist[i][2] = artist.get(i).getLastName();
+                    arrayTableArtist[i][3] = artist.get(i).getNickName();
                 }
-             
+
             }
             bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableArtist, new String[]{"ID", "First Name", "Last Name", "Nickname"}));
+        }
+    }
+
+    private void fillVideoTable() {
+        List<Video> video = videoBiz.getVideos();
+        String[][] arrayTableVideo = new String[video.size()][4];
+        for (int i = 0; i < video.size(); i++) {
+            arrayTableVideo[i][0] = video.get(i).getId();
+            arrayTableVideo[i][1] = video.get(i).getTitle();
+            arrayTableVideo[i][2] = video.get(i).getCategory();
+            arrayTableVideo[i][3] = video.get(i).getUrl();
+            arrayTableVideo[i][4] = video.get(i).getYear();
+
+            artistListBandTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableVideo, new String[]{"ID", "Title", "Category", "URL", "Year"}));
         }
     }
 
@@ -834,6 +851,7 @@ public class Crud extends javax.swing.JFrame {
                 "ID", "Title", "URL"
             }
         ));
+        videoTable.setFillsViewportHeight(true);
         videoTable.setGridColor(new java.awt.Color(213, 213, 213));
         videoTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         videoTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
@@ -954,6 +972,11 @@ public class Crud extends javax.swing.JFrame {
 
         addVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
         addVideoButton.setContentAreaFilled(false);
+        addVideoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addVideoButtonActionPerformed(evt);
+            }
+        });
         jPanel6.add(addVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, -1, -1));
 
         cleanVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sweep.png"))); // NOI18N
@@ -1032,7 +1055,14 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_yearVideoTextFieldActionPerformed
 
     private void addNewVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewVideoButtonActionPerformed
-        // TODO add your handling code here:
+        videoBiz.insertVideo(idVideoTextField.getText().toString(), nameVideoTextField.getText().toString(), categoryVideoTextField.getText().toString(), urlVideoTextField.getText().toString(), yearVideoTextField.getText().toString());
+        fillVideoTable();
+        idVideoTextField.setText("");
+        nameVideoTextField.setText("");
+        categoryVideoTextField.setText("");
+        urlVideoTextField.setText("");
+        yearVideoTextField.setText("");
+       
     }//GEN-LAST:event_addNewVideoButtonActionPerformed
 
     private void deleteArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistButtonActionPerformed
@@ -1221,8 +1251,18 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_addVideoToPlaylistButtonActionPerformed
 
     private void deleteBandMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandMemberButtonActionPerformed
-        
+
     }//GEN-LAST:event_deleteBandMemberButtonActionPerformed
+
+    private void addVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoButtonActionPerformed
+        videoBiz.insertVideo(idVideoTextField.getText().toString(), nameVideoTextField.getText().toString(), categoryVideoTextField.getText().toString(), urlVideoTextField.getText().toString(), yearVideoTextField.getText().toString());
+        idVideoTextField.setText("");
+        nameVideoTextField.setText("");
+        categoryVideoTextField.setText("");
+        urlVideoTextField.setText("");
+        yearVideoTextField.setText("");
+        fillVideoTable();
+    }//GEN-LAST:event_addVideoButtonActionPerformed
 
     /**
      * @param args the command line arguments
