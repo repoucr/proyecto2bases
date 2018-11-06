@@ -856,6 +856,11 @@ public class Crud extends javax.swing.JFrame {
         videoTable.setGridColor(new java.awt.Color(213, 213, 213));
         videoTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
         videoTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        videoTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                videoTableMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(videoTable);
         if (videoTable.getColumnModel().getColumnCount() > 0) {
             videoTable.getColumnModel().getColumn(3).setResizable(false);
@@ -998,6 +1003,7 @@ public class Crud extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setFillsViewportHeight(true);
         jScrollPane3.setViewportView(jTable1);
 
         jPanel6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 300, 110));
@@ -1013,6 +1019,7 @@ public class Crud extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setFillsViewportHeight(true);
         jScrollPane4.setViewportView(jTable2);
 
         jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 300, 290));
@@ -1072,7 +1079,7 @@ public class Crud extends javax.swing.JFrame {
         categoryVideoTextField.setText("");
         urlVideoTextField.setText("");
         yearVideoTextField.setText("");
-       
+
     }//GEN-LAST:event_addNewVideoButtonActionPerformed
 
     private void deleteArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistButtonActionPerformed
@@ -1238,7 +1245,14 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshPlaylistButtonActionPerformed
 
     private void refreshPlaylistButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPlaylistButton1ActionPerformed
-        
+        videoBiz.updateVideo(idVideoTextField.getText().toString(), nameVideoTextField.getText().toString(), categoryVideoTextField.getText().toString(), urlVideoTextField.getText().toString(), yearVideoTextField.getText().toString());
+        idVideoTextField.setText("");
+        nameVideoTextField.setText("");
+        categoryVideoTextField.setText("");
+        urlVideoTextField.setText("");
+        yearVideoTextField.setText("");
+        addNewVideoButton.setEnabled(true);
+        fillVideoTable();
     }//GEN-LAST:event_refreshPlaylistButton1ActionPerformed
 
     private void bandsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bandsTableMouseClicked
@@ -1253,7 +1267,13 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_bandsTableMouseClicked
 
     private void deleteVideoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButton1ActionPerformed
-        // TODO add your handling code here:
+        videoBiz.deleteVideo(idVideoTextField.getText().toString());
+        idVideoTextField.setText("");
+        nameVideoTextField.setText("");
+        categoryVideoTextField.setText("");
+        urlVideoTextField.setText("");
+        yearVideoTextField.setText("");
+        fillVideoTable();
     }//GEN-LAST:event_deleteVideoButton1ActionPerformed
 
     private void addVideoToPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoToPlaylistButtonActionPerformed
@@ -1273,6 +1293,15 @@ public class Crud extends javax.swing.JFrame {
         yearVideoTextField.setText("");
         fillVideoTable();
     }//GEN-LAST:event_addVideoButtonActionPerformed
+
+    private void videoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_videoTableMouseClicked
+        idVideoTextField.setText(videoTable.getValueAt(videoTable.getSelectedRow(), 0).toString());
+        nameVideoTextField.setText(videoTable.getValueAt(videoTable.getSelectedRow(), 1).toString());
+        categoryVideoTextField.setText(videoTable.getValueAt(videoTable.getSelectedRow(), 2).toString());
+        urlVideoTextField.setText(videoTable.getValueAt(videoTable.getSelectedRow(), 3).toString());
+        yearVideoTextField.setText(videoTable.getValueAt(videoTable.getSelectedRow(), 4).toString());
+        addNewVideoButton.setEnabled(false);
+    }//GEN-LAST:event_videoTableMouseClicked
 
     /**
      * @param args the command line arguments

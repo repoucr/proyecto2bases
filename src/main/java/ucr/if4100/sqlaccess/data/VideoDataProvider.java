@@ -119,7 +119,7 @@ public class VideoDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String updateVideoStm = String.format("UPDATE VIDEO SET title = '%s',SET category = '%s',SET year = '%s',SET url = '%s' WHERE ID = '%s'",
+            String updateVideoStm = String.format("UPDATE VIDEO SET title = '%s', category = '%s', year = '%s', url = '%s' WHERE ID = '%s'",
                  
                      updatedVideo.getTitle(),
                      updatedVideo.getCategory(),
