@@ -6,6 +6,7 @@
 package ucr.if4100.sqlaccess.business.interfaces;
 
 import java.util.List;
+import ucr.if4100.domain.Band;
 import ucr.if4100.domain.Video;
 
 /**
@@ -14,9 +15,9 @@ import ucr.if4100.domain.Video;
  */
 public interface IBandBiz {
     
-    List<Video> getBand();
+    List<Band> getBand();
     
-    Boolean insertBand(String id,String name,String foundationDate,String country,List members);
-    Boolean updateBand(String id,String name,String foundationDate,String country,List members);
+    Boolean insertBand(String id,String name,String foundationDate,String country);
+    Boolean updateBand(String id,String name,String foundationDate,String country);
     Boolean deleteBand(String id);
 }

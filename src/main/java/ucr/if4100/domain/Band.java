@@ -17,17 +17,16 @@ public class Band {
     private String name;
     private String foundationDate;
     private String country;
-    private List members; 
+    
 
     public Band() {
     }
 
-    public Band(String id, String name, String foundationDate, String country, List members) {
+    public Band(String id, String name, String foundationDate, String country) {
         this.id = id;
         this.name = name;
         this.foundationDate = foundationDate;
         this.country = country;
-        this.members = members;
     }
 
     public String getId() {
@@ -62,17 +61,9 @@ public class Band {
         this.country = country;
     }
 
-    public List getMembers() {
-        return members;
-    }
-
-    public void setMembers(List members) {
-        this.members = members;
-    }
-
     @Override
     public String toString() {
-        return "Band{" + "id=" + id + ", name=" + name + ", foundationDate=" + foundationDate + ", country=" + country + ", members=" + members + '}';
+        return "Band{" + "id=" + id + ", name=" + name + ", foundationDate=" + foundationDate + ", country=" + country + '}';
     }
 
     

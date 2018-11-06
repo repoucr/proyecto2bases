@@ -6,12 +6,14 @@
 package ucr.if4100.gui;
 import java.util.List;
 import ucr.if4100.domain.Artist;
+import ucr.if4100.domain.Band;
 import ucr.if4100.sqlaccess.business.concrete.ArtistBiz;
+import ucr.if4100.sqlaccess.business.concrete.BandBiz;
 import ucr.if4100.sqlaccess.business.interfaces.IArtistBiz;
 
 /**
  *
- * @author Wilmata
+ * 
  */
 public class Crud extends javax.swing.JFrame {
 
@@ -19,26 +21,42 @@ public class Crud extends javax.swing.JFrame {
      * Creates new form Crud2
      */
     ArtistBiz artistBiz = new ArtistBiz();
+    BandBiz bandBiz = new BandBiz();
     
     public Crud() {
         initComponents();
-         fillTable();
+         fillArtistTable();
+         fillBandTable();
          jButton1.setEnabled(false);
          
     }
 
-    public void fillTable(){
+    public void fillArtistTable(){
         List<Artist> artist = artistBiz.getArtists();
-        String [][] arrayTable = new String[artist.size()][6];  
+        String [][] arrayTableArtist = new String[artist.size()][6];  
         for (int i = 0; i < artist.size(); i++) {
-            arrayTable [i][0] = artist.get(i).getId();
-            arrayTable [i][1] = artist.get(i).getFirstName();
-            arrayTable [i][2] = artist.get(i).getLastName();
-            arrayTable [i][3] = artist.get(i).getNickName();
-            arrayTable [i][4] = artist.get(i).getNationality();
-            arrayTable [i][5] = artist.get(i).getBirthday();
-            deleteArtistTable.setModel(new javax.swing.table.DefaultTableModel(arrayTable, new String[]{"ID", "First Name", "Last Name", "Nickname", "Nationality", "Birthday"}));
+            arrayTableArtist [i][0] = artist.get(i).getId();
+            arrayTableArtist [i][1] = artist.get(i).getFirstName();
+            arrayTableArtist [i][2] = artist.get(i).getLastName();
+            arrayTableArtist [i][3] = artist.get(i).getNickName();
+            arrayTableArtist [i][4] = artist.get(i).getNationality();
+            arrayTableArtist [i][5] = artist.get(i).getBirthday();
+            deleteArtistTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableArtist, new String[]{"ID", "First Name", "Last Name", "Nickname", "Nationality", "Birthday"}));
         }
+    }
+    
+    private void fillBandTable() {
+        List<Band> band = bandBiz.getBand();
+        String [][] arrayTableBand = new String[band.size()][4]; 
+        for (int i = 0; i < band.size(); i++) {
+            arrayTableBand [i][0] = band.get(i).getId();
+            arrayTableBand [i][1] = band.get(i).getName();
+            arrayTableBand [i][2] = band.get(i).getCountry();
+            arrayTableBand [i][3] = band.get(i).getFoundationDate();
+            bandsTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableBand, new String[]{"ID", "Name", "Country", "Fundation Date"}));
+        }
+        
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,6 +85,8 @@ public class Crud extends javax.swing.JFrame {
         deleteVideoFromPlaylistButton = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
         deleteVideoList = new javax.swing.JList<>();
+        cleanPlaylistButton = new javax.swing.JButton();
+        refreshPlaylistButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         bandsTable = new javax.swing.JTable();
@@ -87,6 +107,8 @@ public class Crud extends javax.swing.JFrame {
         addBandButton = new javax.swing.JButton();
         label12 = new java.awt.Label();
         foundationDateTextField = new javax.swing.JTextField();
+        cleanBandButton = new javax.swing.JButton();
+        refreshBandButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         deleteArtistTable = new javax.swing.JTable();
@@ -128,6 +150,8 @@ public class Crud extends javax.swing.JFrame {
         yearVideoTextField = new javax.swing.JTextField();
         addNewVideoButton = new javax.swing.JButton();
         addVideoButton = new javax.swing.JButton();
+        cleanVideoButton = new javax.swing.JButton();
+        refreshPlaylistButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -250,57 +274,81 @@ public class Crud extends javax.swing.JFrame {
         deleteVideoList.setSelectionForeground(new java.awt.Color(204, 0, 204));
         jScrollPane10.setViewportView(deleteVideoList);
 
+        cleanPlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sweep.png"))); // NOI18N
+        cleanPlaylistButton.setContentAreaFilled(false);
+
+        refreshPlaylistButton.setBackground(new java.awt.Color(255, 255, 255));
+        refreshPlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
+        refreshPlaylistButton.setContentAreaFilled(false);
+        refreshPlaylistButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshPlaylistButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteVideoFromPlaylistButton))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(deleteVideoFromPlaylistButton))
+                        .addGap(311, 311, 311)
+                        .addComponent(addVideoToPlaylistButton)
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(311, 311, 311)
-                                .addComponent(addVideoToPlaylistButton)
-                                .addGap(44, 44, 44))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52)))
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(idPlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(namePlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(createPlaylistButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52)))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(543, 543, 543)
-                        .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(298, Short.MAX_VALUE))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idPlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(namePlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cleanPlaylistButton))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(refreshPlaylistButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116)
+                        .addComponent(createPlaylistButton)))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(24, 24, 24)
                 .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idPlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(idPlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(cleanPlaylistButton)))
+                        .addGap(15, 15, 15)
                         .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
-                        .addComponent(namePlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(namePlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(createPlaylistButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(refreshPlaylistButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
@@ -310,9 +358,7 @@ public class Crud extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deleteVideoFromPlaylistButton)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(createPlaylistButton)
-                        .addComponent(addVideoToPlaylistButton)))
+                    .addComponent(addVideoToPlaylistButton))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
@@ -324,24 +370,24 @@ public class Crud extends javax.swing.JFrame {
         bandsTable.setForeground(new java.awt.Color(204, 0, 204));
         bandsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Country"
+                "ID", "Name", "Country", "Fundation Date"
             }
         ));
         bandsTable.setGridColor(new java.awt.Color(213, 213, 213));
@@ -400,7 +446,7 @@ public class Crud extends javax.swing.JFrame {
                 createBandButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(createBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 420, -1, -1));
+        jPanel4.add(createBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 300, -1, -1));
 
         deleteBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
         deleteBandButton.setContentAreaFilled(false);
@@ -449,11 +495,31 @@ public class Crud extends javax.swing.JFrame {
         jPanel4.add(addBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, -1, -1));
 
         label12.setForeground(new java.awt.Color(147, 62, 197));
-        label12.setText("Artists & bands");
-        jPanel4.add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
+        label12.setText("Artists ");
+        jPanel4.add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
 
+        foundationDateTextField.setForeground(new java.awt.Color(204, 0, 204));
         foundationDateTextField.setToolTipText("");
         jPanel4.add(foundationDateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 180, -1));
+
+        cleanBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sweep.png"))); // NOI18N
+        cleanBandButton.setContentAreaFilled(false);
+        cleanBandButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cleanBandButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(cleanBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 70, -1, -1));
+
+        refreshBandButton.setBackground(new java.awt.Color(255, 255, 255));
+        refreshBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
+        refreshBandButton.setContentAreaFilled(false);
+        refreshBandButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshBandButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(refreshBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, -1, -1));
 
         jTabbedPane7.addTab("Band", jPanel4);
 
@@ -740,7 +806,7 @@ public class Crud extends javax.swing.JFrame {
 
         label14.setForeground(new java.awt.Color(147, 62, 197));
         label14.setText("Artists & bands");
-        jPanel6.add(label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
+        jPanel6.add(label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, -1));
 
         label15.setForeground(new java.awt.Color(147, 62, 197));
         label15.setText("ID");
@@ -810,11 +876,30 @@ public class Crud extends javax.swing.JFrame {
                 addNewVideoButtonActionPerformed(evt);
             }
         });
-        jPanel6.add(addNewVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 420, -1, -1));
+        jPanel6.add(addNewVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 370, -1, -1));
 
         addVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
         addVideoButton.setContentAreaFilled(false);
         jPanel6.add(addVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, -1, -1));
+
+        cleanVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sweep.png"))); // NOI18N
+        cleanVideoButton.setContentAreaFilled(false);
+        cleanVideoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cleanVideoButtonActionPerformed(evt);
+            }
+        });
+        jPanel6.add(cleanVideoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 50, -1, -1));
+
+        refreshPlaylistButton1.setBackground(new java.awt.Color(255, 255, 255));
+        refreshPlaylistButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
+        refreshPlaylistButton1.setContentAreaFilled(false);
+        refreshPlaylistButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshPlaylistButton1ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(refreshPlaylistButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 370, -1, -1));
 
         jTabbedPane7.addTab("Video", jPanel6);
 
@@ -869,7 +954,7 @@ public class Crud extends javax.swing.JFrame {
 
     private void deleteArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistButtonActionPerformed
         artistBiz.deleteArtist((deleteArtistTable.getValueAt(deleteArtistTable.getSelectedRow(), 0).toString()));
-        fillTable();
+        fillArtistTable();
         idArtistTextField.setEnabled(true);
         idArtistTextField.setText("");
         firstNameTextField.setText("");
@@ -881,7 +966,7 @@ public class Crud extends javax.swing.JFrame {
 
     private void addArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArtistButtonActionPerformed
         artistBiz.insertArtist(idArtistTextField.getText().toString(), firstNameTextField.getText().toString(),  lastNameTextField.getText().toString(), nicknameTextField.getText().toString(), countryTextField.getText().toString(), birthdayTextField.getText().toString());
-        fillTable();
+        fillArtistTable();
         idArtistTextField.setText("");
         firstNameTextField.setText("");
         lastNameTextField.setText("");
@@ -919,7 +1004,9 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_countryBandTextFieldActionPerformed
 
     private void createBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBandButtonActionPerformed
-       
+
+        bandBiz.insertBand(idBandTextField.getText(), bandNameTextField.getText(), countryBandTextField.getText(), foundationDateTextField.getText());
+        
     }//GEN-LAST:event_createBandButtonActionPerformed
 
     private void deleteBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandButtonActionPerformed
@@ -940,7 +1027,7 @@ public class Crud extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         artistBiz.updateArtist(idArtistTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText(), nicknameTextField.getText(), countryTextField.getText(),birthdayTextField.getText());
-        fillTable();
+        fillArtistTable();
         idArtistTextField.setText("");
         firstNameTextField.setText("");
         lastNameTextField.setText("");
@@ -978,6 +1065,26 @@ public class Crud extends javax.swing.JFrame {
         addArtistButton.setEnabled(true);
         jButton1.setEnabled(false);
     }//GEN-LAST:event_cleanArtistButtonActionPerformed
+
+    private void cleanVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanVideoButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cleanVideoButtonActionPerformed
+
+    private void cleanBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanBandButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cleanBandButtonActionPerformed
+
+    private void refreshBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBandButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_refreshBandButtonActionPerformed
+
+    private void refreshPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPlaylistButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_refreshPlaylistButtonActionPerformed
+
+    private void refreshPlaylistButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPlaylistButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_refreshPlaylistButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1030,6 +1137,9 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JTextField birthdayTextField;
     private javax.swing.JTextField categoryVideoTextField;
     private javax.swing.JButton cleanArtistButton;
+    private javax.swing.JButton cleanBandButton;
+    private javax.swing.JButton cleanPlaylistButton;
+    private javax.swing.JButton cleanVideoButton;
     private javax.swing.JTextField countryBandTextField;
     private javax.swing.JTextField countryTextField;
     private javax.swing.JButton createBandButton;
@@ -1091,8 +1201,13 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JTextField nameVideoTextField;
     private javax.swing.JTextField nicknameTextField;
     private javax.swing.JTable playlistTable;
+    private javax.swing.JButton refreshBandButton;
+    private javax.swing.JButton refreshPlaylistButton;
+    private javax.swing.JButton refreshPlaylistButton1;
     private javax.swing.JTextField urlVideoTextField;
     private javax.swing.JTable videoTable;
     private javax.swing.JTextField yearVideoTextField;
     // End of variables declaration//GEN-END:variables
+
+  
 }

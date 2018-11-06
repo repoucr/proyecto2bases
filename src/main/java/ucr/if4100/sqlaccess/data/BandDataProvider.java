@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import ucr.if4100.domain.Band;
 
+
 /**
  *
  */
@@ -39,7 +40,6 @@ public class BandDataProvider {
                 band.setName(queryResult.getString("name"));
                 band.setFoundationDate(queryResult.getString("foundationDate"));
                 band.setCountry(queryResult.getString("country"));
-//                band.setMembers());
 
                 bands.add(band);
             }
@@ -81,8 +81,7 @@ public class BandDataProvider {
                     newBand.getId(),
                     newBand.getName(),
                     newBand.getFoundationDate(),
-                    newBand.getCountry(),
-                    newBand.getMembers());
+                    newBand.getCountry());
 
             insertBand = conn.prepareStatement(insertBandStm);
             int insertResult = insertBand.executeUpdate();

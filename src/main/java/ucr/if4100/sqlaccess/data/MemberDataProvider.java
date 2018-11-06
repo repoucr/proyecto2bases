@@ -21,7 +21,7 @@ import ucr.if4100.domain.Members;
  * @author fabian
  */
 public class MemberDataProvider {
-        public List<Members> getMember() {
+        public List<Members> getMember(String ID) {
         Connection conn = null;
         ResultSet queryResult = null;
         List<Members> members = new ArrayList<>();

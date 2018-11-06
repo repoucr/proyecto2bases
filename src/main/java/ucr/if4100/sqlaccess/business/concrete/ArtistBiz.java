@@ -13,7 +13,10 @@ import ucr.if4100.sqlaccess.business.interfaces.IArtistBiz;
 
 /**
  *
- * @author Equipo
+ * @author Equipo 
+ * para mostrar la info
+ * 
+ * 
  */
 public class ArtistBiz implements IArtistBiz{
 
