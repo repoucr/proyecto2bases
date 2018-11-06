@@ -1253,6 +1253,7 @@ public class Crud extends javax.swing.JFrame {
         yearVideoTextField.setText("");
         addNewVideoButton.setEnabled(true);
         fillVideoTable();
+        
     }//GEN-LAST:event_refreshPlaylistButton1ActionPerformed
 
     private void bandsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bandsTableMouseClicked
@@ -1291,7 +1292,7 @@ public class Crud extends javax.swing.JFrame {
         categoryVideoTextField.setText("");
         urlVideoTextField.setText("");
         yearVideoTextField.setText("");
-        fillVideoTable();
+        fillVideoTable();        
     }//GEN-LAST:event_addVideoButtonActionPerformed
 
     private void videoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_videoTableMouseClicked
@@ -1301,6 +1302,7 @@ public class Crud extends javax.swing.JFrame {
         urlVideoTextField.setText(videoTable.getValueAt(videoTable.getSelectedRow(), 3).toString());
         yearVideoTextField.setText(videoTable.getValueAt(videoTable.getSelectedRow(), 4).toString());
         addNewVideoButton.setEnabled(false);
+        idVideoTextField.setEnabled(false);
     }//GEN-LAST:event_videoTableMouseClicked
 
     /**
