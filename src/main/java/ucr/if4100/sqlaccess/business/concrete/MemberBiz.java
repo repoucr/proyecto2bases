@@ -24,13 +24,13 @@ public class MemberBiz {
     }
     
  
-    public List<Members> getMembers(String id) {
-        return this._dataProvider.getMember(id);
+    public List<Members> getMembers() {
+        return this._dataProvider.getMember();
     }
 
    
     public Boolean insertMembers(String artistID, String bandID,String nickname) {
-        Members newMembers = new Members(artistID, bandID,nickname);
+        Members newMembers = new Members(artistID, bandID, nickname);
         return _dataProvider.insertMember(newMembers);
     }
  

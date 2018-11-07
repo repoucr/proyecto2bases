@@ -93,20 +93,17 @@ public class Crud extends javax.swing.JFrame {
     }
 
     private void fillBandMembersTable(String id) {
-        List<Members> members = memberBiz.getMembers(id);
-        String[][] arrayTableArtist = new String[members.size()][4];
+        int y=0;
+        List<Members> members = memberBiz.getMembers();
+        String[][] arrayTableArtist = new String[members.size()][2];
         List<Artist> artist = artistBiz.getArtists();
         for (int i = 0; i < members.size(); i++) {
-            for (int j = 0; j < artist.size(); j++) {
-                if (members.get(i).getArtistID().equals(artist.get(j).getId())) {
-                    arrayTableArtist[i][0] = artist.get(j).getId();
-                    arrayTableArtist[i][1] = artist.get(j).getFirstName();
-                    arrayTableArtist[i][2] = artist.get(j).getLastName();
-                    arrayTableArtist[i][3] = artist.get(j).getNickName();
-                }
-
+            if (members.get(i).getBandID().equals(id)) {
+                arrayTableArtist[y][0] = members.get(i).getArtistID();
+                arrayTableArtist[y][1] = members.get(i).getArtistNickname();
+                y++;
             }
-            bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableArtist, new String[]{"ID", "First Name", "Last Name", "Nickname"}));
+            bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableArtist, new String[]{"ID", "Artist"}));
         }
     }
 
@@ -1179,7 +1176,8 @@ public class Crud extends javax.swing.JFrame {
 
     private void deleteBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandButtonActionPerformed
         memberBiz.deleteMembers(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
-//        fillBandMembersTable(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
+        String[][] arrayTableArtist = new String[0][2];
+        bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableArtist, new String[]{"ID", "Artist"}));
         bandMembersTable.removeAll();
         bandBiz.deleteBand(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
         idBandTextField.setEnabled(true);
@@ -1190,11 +1188,11 @@ public class Crud extends javax.swing.JFrame {
         refreshBandButton.setEnabled(false);
         createBandButton.setEnabled(true);
         fillBandTable();
-        
+
     }//GEN-LAST:event_deleteBandButtonActionPerformed
 
     private void addBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBandButtonActionPerformed
-        memberBiz.insertMembers(artistListBandTable.getValueAt(artistListBandTable.getSelectedRow(), 0).toString(), idBandTextField.getText().toString(), artistListBandTable.getValueAt(artistListBandTable.getSelectedRow(), 0).toString());
+        memberBiz.insertMembers(artistListBandTable.getValueAt(artistListBandTable.getSelectedRow(), 0).toString(), idBandTextField.getText().toString(), artistListBandTable.getValueAt(artistListBandTable.getSelectedRow(), 3).toString());
         fillBandMembersTable(idBandTextField.getText());
     }//GEN-LAST:event_addBandButtonActionPerformed
 
@@ -1297,6 +1295,7 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshPlaylistButton1ActionPerformed
 
     private void bandsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bandsTableMouseClicked
+       
         fillBandMembersTable(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
         idBandTextField.setEnabled(false);
         idBandTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
@@ -1305,7 +1304,7 @@ public class Crud extends javax.swing.JFrame {
         foundationDateTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 3).toString());
         refreshBandButton.setEnabled(true);
         createBandButton.setEnabled(false);
-        bandMembersTable.removeAll();
+       
     }//GEN-LAST:event_bandsTableMouseClicked
 
     private void deleteVideoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButton1ActionPerformed
@@ -1325,6 +1324,7 @@ public class Crud extends javax.swing.JFrame {
     private void deleteBandMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandMemberButtonActionPerformed
         memberBiz.deleteMembers(bandMembersTable.getValueAt(bandMembersTable.getSelectedRow(), 0).toString());
         fillBandMembersTable(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
+        
     }//GEN-LAST:event_deleteBandMemberButtonActionPerformed
 
     private void addVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoButtonActionPerformed

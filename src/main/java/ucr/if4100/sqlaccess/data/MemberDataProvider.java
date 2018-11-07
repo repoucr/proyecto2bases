@@ -21,7 +21,7 @@ import ucr.if4100.domain.Members;
  * @author fabian
  */
 public class MemberDataProvider {
-        public List<Members> getMember(String ID) {
+        public List<Members> getMember() {
         Connection conn = null;
         ResultSet queryResult = null;
         List<Members> members = new ArrayList<>();
@@ -38,7 +38,7 @@ public class MemberDataProvider {
 
                 member.setArtistID(queryResult.getString("ID_artist"));
                 member.setBandID(queryResult.getString("ID_band"));
-                member.setArtistNickname("nickname");
+                member.setArtistNickname(queryResult.getString("nickname"));
                 
 
                 members.add(member);
