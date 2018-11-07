@@ -24,6 +24,7 @@ import javax.swing.SwingUtilities;
 import static javax.swing.SwingUtilities.updateComponentTreeUI;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import ucr.if4100.sqlaccess.business.concrete.BelongsBiz;
 
 /**
  *
@@ -39,6 +40,7 @@ public class Crud extends javax.swing.JFrame {
     MemberBiz memberBiz = new MemberBiz();
     VideoBiz videoBiz = new VideoBiz();
     PlaylistBiz playlistBiz = new PlaylistBiz();
+    BelongsBiz belongsBiz = new BelongsBiz();
 
     public Crud() {
 
@@ -48,6 +50,7 @@ public class Crud extends javax.swing.JFrame {
         fillBandTable();
         fillVideoTable();
         fillPlaylistTable();
+        fillVideosTableP();
         jButton1.setEnabled(false);
         refreshBandButton.setEnabled(false);
 
@@ -69,7 +72,7 @@ public class Crud extends javax.swing.JFrame {
 
     private void fillBandTable() {
         List<Band> band = bandBiz.getBand();
-        if(band.size()>0){
+        if (band.size() > 0) {
             String[][] arrayTableBand = new String[band.size()][4];
             for (int i = 0; i < band.size(); i++) {
                 arrayTableBand[i][0] = band.get(i).getId();
@@ -78,7 +81,7 @@ public class Crud extends javax.swing.JFrame {
                 arrayTableBand[i][3] = band.get(i).getFoundationDate();
                 bandsTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableBand, new String[]{"ID", "Name", "Country", "Fundation Date"}));
             }
-        }else{
+        } else {
             String[][] arrayTableBand = new String[0][4];
             bandsTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableBand, new String[]{"ID", "Name", "Country", "Fundation Date"}));
         }
@@ -98,7 +101,7 @@ public class Crud extends javax.swing.JFrame {
     }
 
     private void fillBandMembersTable(String id) {
-        int y=0;
+        int y = 0;
         List<Members> members = memberBiz.getMembers();
         String[][] arrayTableArtist = new String[members.size()][2];
         List<Artist> artist = artistBiz.getArtists();
@@ -113,6 +116,7 @@ public class Crud extends javax.swing.JFrame {
     }
 
     private void fillVideoTable() {
+        fillVideosTableP();
         List<Video> videos = videoBiz.getVideos();
         String[][] arrayTableVideo = new String[videos.size()][5];
         for (int i = 0; i < videos.size(); i++) {
@@ -137,6 +141,19 @@ public class Crud extends javax.swing.JFrame {
         }
     }
 
+    public void fillVideosTableP() {
+        List<Video> videos = videoBiz.getVideos();
+        String[][] arrayTableVideo = new String[videos.size()][4];
+        for (int i = 0; i < videos.size(); i++) {
+            arrayTableVideo[i][0] = videos.get(i).getId();
+            arrayTableVideo[i][1] = videos.get(i).getTitle();
+            arrayTableVideo[i][2] = videos.get(i).getCategory();
+            arrayTableVideo[i][3] = videos.get(i).getYear();
+
+            videosTableP.setModel(new javax.swing.table.DefaultTableModel(arrayTableVideo, new String[]{"ID", "Title", "Category", "Year"}));
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,8 +169,6 @@ public class Crud extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         playlistTable = new javax.swing.JTable();
         label20 = new java.awt.Label();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        addVideoList = new javax.swing.JList<>();
         label21 = new java.awt.Label();
         idPlaylistTextfield = new javax.swing.JTextField();
         label22 = new java.awt.Label();
@@ -161,11 +176,14 @@ public class Crud extends javax.swing.JFrame {
         label23 = new java.awt.Label();
         addVideoToPlaylistButton = new javax.swing.JButton();
         createPlaylistButton = new javax.swing.JButton();
-        deleteVideoFromPlaylistButton = new javax.swing.JButton();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        deleteVideoList = new javax.swing.JList<>();
+        deletePlaylistButton = new javax.swing.JButton();
         cleanPlaylistButton = new javax.swing.JButton();
         refreshPlaylistButton = new javax.swing.JButton();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        videosTableP = new javax.swing.JTable();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        playlistTable2 = new javax.swing.JTable();
+        deleteVideoFromPlaylistButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         deleteArtistTable = new javax.swing.JTable();
@@ -295,16 +313,6 @@ public class Crud extends javax.swing.JFrame {
         label20.setForeground(new java.awt.Color(147, 62, 197));
         label20.setText("Video(s)");
 
-        addVideoList.setForeground(new java.awt.Color(147, 62, 197));
-        addVideoList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        addVideoList.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        addVideoList.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane9.setViewportView(addVideoList);
-
         label21.setForeground(new java.awt.Color(147, 62, 197));
         label21.setText("Videos");
 
@@ -345,24 +353,14 @@ public class Crud extends javax.swing.JFrame {
             }
         });
 
-        deleteVideoFromPlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
-        deleteVideoFromPlaylistButton.setToolTipText("");
-        deleteVideoFromPlaylistButton.setContentAreaFilled(false);
-        deleteVideoFromPlaylistButton.addActionListener(new java.awt.event.ActionListener() {
+        deletePlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deletePlaylistButton.setToolTipText("");
+        deletePlaylistButton.setContentAreaFilled(false);
+        deletePlaylistButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteVideoFromPlaylistButtonActionPerformed(evt);
+                deletePlaylistButtonActionPerformed(evt);
             }
         });
-
-        deleteVideoList.setForeground(new java.awt.Color(147, 62, 197));
-        deleteVideoList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        deleteVideoList.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        deleteVideoList.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        jScrollPane10.setViewportView(deleteVideoList);
 
         cleanPlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sweep.png"))); // NOI18N
         cleanPlaylistButton.setContentAreaFilled(false);
@@ -376,80 +374,157 @@ public class Crud extends javax.swing.JFrame {
             }
         });
 
+        videosTableP.setForeground(new java.awt.Color(204, 0, 204));
+        videosTableP.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "ID", "Name"
+            }
+        ));
+        videosTableP.setGridColor(new java.awt.Color(213, 213, 213));
+        videosTableP.setName(""); // NOI18N
+        videosTableP.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        videosTableP.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane12.setViewportView(videosTableP);
+
+        playlistTable2.setForeground(new java.awt.Color(204, 0, 204));
+        playlistTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "ID", "Name"
+            }
+        ));
+        playlistTable2.setGridColor(new java.awt.Color(213, 213, 213));
+        playlistTable2.setName(""); // NOI18N
+        playlistTable2.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        playlistTable2.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        jScrollPane14.setViewportView(playlistTable2);
+
+        deleteVideoFromPlaylistButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deleteVideoFromPlaylistButton.setToolTipText("");
+        deleteVideoFromPlaylistButton.setContentAreaFilled(false);
+        deleteVideoFromPlaylistButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteVideoFromPlaylistButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(64, 64, 64)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(311, 311, 311)
-                        .addComponent(addVideoToPlaylistButton)
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteVideoFromPlaylistButton)
+                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(addVideoToPlaylistButton))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(deleteVideoFromPlaylistButton)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idPlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(titlePlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cleanPlaylistButton))
+                            .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(deletePlaylistButton)))
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(refreshPlaylistButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(116, 116, 116)
-                        .addComponent(createPlaylistButton)))
-                .addContainerGap(227, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(createPlaylistButton))
+                    .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idPlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(titlePlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cleanPlaylistButton)
+                .addContainerGap(233, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(15, 15, 15)
                 .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(deleteVideoFromPlaylistButton)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(idPlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(idPlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(19, 19, 19)
+                                        .addComponent(cleanPlaylistButton)))
+                                .addGap(15, 15, 15)
+                                .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(19, 19, 19)
-                                .addComponent(cleanPlaylistButton)))
-                        .addGap(15, 15, 15)
-                        .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
-                        .addComponent(titlePlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(createPlaylistButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(refreshPlaylistButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deleteVideoFromPlaylistButton))
-                        .addGap(25, 25, 25)
-                        .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
-                .addComponent(addVideoToPlaylistButton)
-                .addContainerGap(48, Short.MAX_VALUE))
+                                .addComponent(titlePlaylistTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(createPlaylistButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(refreshPlaylistButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(deletePlaylistButton)
+                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(23, 23, 23)
+                                .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(addVideoToPlaylistButton)))))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         jTabbedPane7.addTab("Playlist", jPanel5);
@@ -1075,11 +1150,11 @@ public class Crud extends javax.swing.JFrame {
         fillPlaylistTable();
     }//GEN-LAST:event_createPlaylistButtonActionPerformed
 
-    private void deleteVideoFromPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoFromPlaylistButtonActionPerformed
+    private void deletePlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePlaylistButtonActionPerformed
         playlistBiz.deletePlaylist(idPlaylistTextfield.getText().toString());
         idPlaylistTextfield.setEnabled(true);
         fillPlaylistTable();
-    }//GEN-LAST:event_deleteVideoFromPlaylistButtonActionPerformed
+    }//GEN-LAST:event_deletePlaylistButtonActionPerformed
 
     private void deleteArtistVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistVideoButtonActionPerformed
         // TODO add your handling code here:
@@ -1300,7 +1375,7 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshPlaylistButton1ActionPerformed
 
     private void bandsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bandsTableMouseClicked
-       
+
         fillBandMembersTable(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
         idBandTextField.setEnabled(false);
         idBandTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
@@ -1309,7 +1384,7 @@ public class Crud extends javax.swing.JFrame {
         foundationDateTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 3).toString());
         refreshBandButton.setEnabled(true);
         createBandButton.setEnabled(false);
-       
+
     }//GEN-LAST:event_bandsTableMouseClicked
 
     private void deleteVideoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButton1ActionPerformed
@@ -1329,7 +1404,7 @@ public class Crud extends javax.swing.JFrame {
     private void deleteBandMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandMemberButtonActionPerformed
         memberBiz.deleteMembers(bandMembersTable.getValueAt(bandMembersTable.getSelectedRow(), 0).toString());
         fillBandMembersTable(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
-        
+
     }//GEN-LAST:event_deleteBandMemberButtonActionPerformed
 
     private void addVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoButtonActionPerformed
@@ -1357,6 +1432,10 @@ public class Crud extends javax.swing.JFrame {
         idPlaylistTextfield.setText(playlistTable.getValueAt(playlistTable.getSelectedRow(), 0).toString());
         titlePlaylistTextfield.setText(playlistTable.getValueAt(playlistTable.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_playlistTableMouseClicked
+
+    private void deleteVideoFromPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoFromPlaylistButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteVideoFromPlaylistButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1399,7 +1478,6 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JButton addBandButton;
     private javax.swing.JButton addNewVideoButton;
     private javax.swing.JButton addVideoButton;
-    private javax.swing.JList<String> addVideoList;
     private javax.swing.JButton addVideoToPlaylistButton;
     private javax.swing.JTable artistListBandTable;
     private javax.swing.JTable bandMembersTable;
@@ -1420,9 +1498,9 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JButton deleteArtistVideoButton;
     private javax.swing.JButton deleteBandButton;
     private javax.swing.JButton deleteBandMemberButton;
+    private javax.swing.JButton deletePlaylistButton;
     private javax.swing.JButton deleteVideoButton1;
     private javax.swing.JButton deleteVideoFromPlaylistButton;
-    private javax.swing.JList<String> deleteVideoList;
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JTextField foundationDateTextField;
     private javax.swing.JTextField idArtistTextField;
@@ -1436,15 +1514,15 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
@@ -1474,12 +1552,14 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JTextField nameVideoTextField;
     private javax.swing.JTextField nicknameTextField;
     private javax.swing.JTable playlistTable;
+    private javax.swing.JTable playlistTable2;
     private javax.swing.JButton refreshBandButton;
     private javax.swing.JButton refreshPlaylistButton;
     private javax.swing.JButton refreshPlaylistButton1;
     private javax.swing.JTextField titlePlaylistTextfield;
     private javax.swing.JTextField urlVideoTextField;
     private javax.swing.JTable videoTable;
+    private javax.swing.JTable videosTableP;
     private javax.swing.JTextField yearVideoTextField;
     // End of variables declaration//GEN-END:variables
 
