@@ -29,8 +29,8 @@ public class MemberBiz {
     }
 
    
-    public Boolean insertMembers(String artistID, String bandID) {
-        Members newMembers = new Members(artistID, bandID);
+    public Boolean insertMembers(String artistID, String bandID,String nickname) {
+        Members newMembers = new Members(artistID, bandID,nickname);
         return _dataProvider.insertMember(newMembers);
     }
  

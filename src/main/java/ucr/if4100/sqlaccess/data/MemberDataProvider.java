@@ -29,7 +29,7 @@ public class MemberDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            PreparedStatement getMember = conn.prepareStatement("SELECT ID_artist, ID_band FROM member");
+            PreparedStatement getMember = conn.prepareStatement("SELECT ID_artist, ID_band, nickname FROM member");
 
             queryResult = getMember.executeQuery();
 
@@ -38,6 +38,7 @@ public class MemberDataProvider {
 
                 member.setArtistID(queryResult.getString("ID_artist"));
                 member.setBandID(queryResult.getString("ID_band"));
+                member.setArtistNickname("nickname");
                 
 
                 members.add(member);
@@ -76,9 +77,10 @@ public class MemberDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String insertMemberStm = String.format("INSERT INTO member (ID_artist, ID_band) VALUES ('%s', '%s')",
+            String insertMemberStm = String.format("INSERT INTO member (ID_artist, ID_band, nickname) VALUES ('%s', '%s', '%s')",
                      newMember.getArtistID(),
-                     newMember.getBandID());
+                     newMember.getBandID(),
+                     newMember.getArtistNickname());
                     
 
             insertMember = conn.prepareStatement(insertMemberStm);

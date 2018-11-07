@@ -13,13 +13,15 @@ public class Members {
     
     private String artistID;
     private String bandID;
+    private String artistNickname;
 
     public Members() {
     }
 
-    public Members(String artistID, String bandID) {
+    public Members(String artistID, String bandID, String artistNickname) {
         this.artistID = artistID;
         this.bandID = bandID;
+        this.artistNickname = artistNickname;
     }
 
     public String getArtistID() {
@@ -38,11 +40,18 @@ public class Members {
         this.bandID = bandID;
     }
 
+    public String getArtistNickname() {
+        return artistNickname;
+    }
+
+    public void setArtistNickname(String artistNickname) {
+        this.artistNickname = artistNickname;
+    }
+
     @Override
     public String toString() {
-        return "Member{" + "artistID=" + artistID + ", bandID=" + bandID + '}';
+        return "Members{" + "artistID=" + artistID + ", bandID=" + bandID + ", artistNickname=" + artistNickname + '}';
     }
-    
-    
+
     
 }
