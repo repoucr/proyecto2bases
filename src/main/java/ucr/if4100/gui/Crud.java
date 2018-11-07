@@ -69,12 +69,17 @@ public class Crud extends javax.swing.JFrame {
 
     private void fillBandTable() {
         List<Band> band = bandBiz.getBand();
-        String[][] arrayTableBand = new String[band.size()][4];
-        for (int i = 0; i < band.size(); i++) {
-            arrayTableBand[i][0] = band.get(i).getId();
-            arrayTableBand[i][1] = band.get(i).getName();
-            arrayTableBand[i][2] = band.get(i).getCountry();
-            arrayTableBand[i][3] = band.get(i).getFoundationDate();
+        if(band.size()>0){
+            String[][] arrayTableBand = new String[band.size()][4];
+            for (int i = 0; i < band.size(); i++) {
+                arrayTableBand[i][0] = band.get(i).getId();
+                arrayTableBand[i][1] = band.get(i).getName();
+                arrayTableBand[i][2] = band.get(i).getCountry();
+                arrayTableBand[i][3] = band.get(i).getFoundationDate();
+                bandsTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableBand, new String[]{"ID", "Name", "Country", "Fundation Date"}));
+            }
+        }else{
+            String[][] arrayTableBand = new String[0][4];
             bandsTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableBand, new String[]{"ID", "Name", "Country", "Fundation Date"}));
         }
     }
@@ -1188,7 +1193,7 @@ public class Crud extends javax.swing.JFrame {
         refreshBandButton.setEnabled(false);
         createBandButton.setEnabled(true);
         fillBandTable();
-
+        fillBandTable();
     }//GEN-LAST:event_deleteBandButtonActionPerformed
 
     private void addBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBandButtonActionPerformed
