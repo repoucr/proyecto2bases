@@ -95,14 +95,14 @@ public class Crud extends javax.swing.JFrame {
     private void fillBandMembersTable(String id) {
         List<Members> members = memberBiz.getMembers(id);
         String[][] arrayTableArtist = new String[members.size()][4];
+        List<Artist> artist = artistBiz.getArtists();
         for (int i = 0; i < members.size(); i++) {
-            List<Artist> artist = artistBiz.getArtists();
             for (int j = 0; j < artist.size(); j++) {
                 if (members.get(i).getArtistID().equals(artist.get(j).getId())) {
-                    arrayTableArtist[i][0] = artist.get(i).getId();
-                    arrayTableArtist[i][1] = artist.get(i).getFirstName();
-                    arrayTableArtist[i][2] = artist.get(i).getLastName();
-                    arrayTableArtist[i][3] = artist.get(i).getNickName();
+                    arrayTableArtist[i][0] = artist.get(j).getId();
+                    arrayTableArtist[i][1] = artist.get(j).getFirstName();
+                    arrayTableArtist[i][2] = artist.get(j).getLastName();
+                    arrayTableArtist[i][3] = artist.get(j).getNickName();
                 }
 
             }
@@ -164,29 +164,6 @@ public class Crud extends javax.swing.JFrame {
         deleteVideoList = new javax.swing.JList<>();
         cleanPlaylistButton = new javax.swing.JButton();
         refreshPlaylistButton = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        bandsTable = new javax.swing.JTable();
-        label6 = new java.awt.Label();
-        idBandTextField = new javax.swing.JTextField();
-        label7 = new java.awt.Label();
-        bandNameTextField = new javax.swing.JTextField();
-        label8 = new java.awt.Label();
-        countryBandTextField = new javax.swing.JTextField();
-        label10 = new java.awt.Label();
-        createBandButton = new javax.swing.JButton();
-        deleteBandButton = new javax.swing.JButton();
-        label11 = new java.awt.Label();
-        addBandButton = new javax.swing.JButton();
-        label12 = new java.awt.Label();
-        foundationDateTextField = new javax.swing.JTextField();
-        cleanBandButton = new javax.swing.JButton();
-        refreshBandButton = new javax.swing.JButton();
-        deleteBandMemberButton = new javax.swing.JButton();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        bandMembersTable = new javax.swing.JTable();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        artistListBandTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         deleteArtistTable = new javax.swing.JTable();
@@ -231,6 +208,29 @@ public class Crud extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        bandsTable = new javax.swing.JTable();
+        label6 = new java.awt.Label();
+        idBandTextField = new javax.swing.JTextField();
+        label7 = new java.awt.Label();
+        bandNameTextField = new javax.swing.JTextField();
+        label8 = new java.awt.Label();
+        countryBandTextField = new javax.swing.JTextField();
+        label10 = new java.awt.Label();
+        createBandButton = new javax.swing.JButton();
+        deleteBandButton = new javax.swing.JButton();
+        label11 = new java.awt.Label();
+        addBandButton = new javax.swing.JButton();
+        label12 = new java.awt.Label();
+        foundationDateTextField = new javax.swing.JTextField();
+        cleanBandButton = new javax.swing.JButton();
+        refreshBandButton = new javax.swing.JButton();
+        deleteBandMemberButton = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        bandMembersTable = new javax.swing.JTable();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        artistListBandTable = new javax.swing.JTable();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -451,188 +451,6 @@ public class Crud extends javax.swing.JFrame {
         );
 
         jTabbedPane7.addTab("Playlist", jPanel5);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        bandsTable.setForeground(new java.awt.Color(204, 0, 204));
-        bandsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "Name", "Country", "Fundation Date"
-            }
-        ));
-        bandsTable.setFillsViewportHeight(true);
-        bandsTable.setGridColor(new java.awt.Color(213, 213, 213));
-        bandsTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        bandsTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
-        bandsTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bandsTableMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(bandsTable);
-
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 301, 202));
-
-        label6.setForeground(new java.awt.Color(147, 62, 197));
-        label6.setText("ID");
-        jPanel4.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 60, -1, -1));
-
-        idBandTextField.setForeground(new java.awt.Color(204, 0, 204));
-        idBandTextField.setToolTipText("ID");
-        idBandTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idBandTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel4.add(idBandTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 178, -1));
-
-        label7.setForeground(new java.awt.Color(147, 62, 197));
-        label7.setText("Band name");
-        jPanel4.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, -1, -1));
-
-        bandNameTextField.setForeground(new java.awt.Color(204, 0, 204));
-        bandNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bandNameTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel4.add(bandNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, 178, -1));
-
-        label8.setForeground(new java.awt.Color(147, 62, 197));
-        label8.setText("Country");
-        jPanel4.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, -1, -1));
-
-        countryBandTextField.setForeground(new java.awt.Color(204, 0, 204));
-        countryBandTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                countryBandTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel4.add(countryBandTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 178, -1));
-
-        label10.setForeground(new java.awt.Color(147, 62, 197));
-        label10.setText("Fundation date");
-        jPanel4.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, -1, -1));
-
-        createBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
-        createBandButton.setToolTipText("Click to create a band.");
-        createBandButton.setContentAreaFilled(false);
-        createBandButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createBandButtonActionPerformed(evt);
-            }
-        });
-        jPanel4.add(createBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 300, -1, -1));
-
-        deleteBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
-        deleteBandButton.setContentAreaFilled(false);
-        deleteBandButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBandButtonActionPerformed(evt);
-            }
-        });
-        jPanel4.add(deleteBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, -1, -1));
-
-        label11.setForeground(new java.awt.Color(147, 62, 197));
-        label11.setText("Members");
-        jPanel4.add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
-
-        addBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
-        addBandButton.setContentAreaFilled(false);
-        addBandButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBandButtonActionPerformed(evt);
-            }
-        });
-        jPanel4.add(addBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, -1, -1));
-
-        label12.setForeground(new java.awt.Color(147, 62, 197));
-        label12.setText("Artists ");
-        jPanel4.add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, -1));
-
-        foundationDateTextField.setForeground(new java.awt.Color(204, 0, 204));
-        foundationDateTextField.setToolTipText("");
-        jPanel4.add(foundationDateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 180, -1));
-
-        cleanBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sweep.png"))); // NOI18N
-        cleanBandButton.setContentAreaFilled(false);
-        cleanBandButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cleanBandButtonActionPerformed(evt);
-            }
-        });
-        jPanel4.add(cleanBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 70, -1, -1));
-
-        refreshBandButton.setBackground(new java.awt.Color(255, 255, 255));
-        refreshBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
-        refreshBandButton.setContentAreaFilled(false);
-        refreshBandButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshBandButtonActionPerformed(evt);
-            }
-        });
-        jPanel4.add(refreshBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, -1, -1));
-
-        deleteBandMemberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
-        deleteBandMemberButton.setContentAreaFilled(false);
-        deleteBandMemberButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBandMemberButtonActionPerformed(evt);
-            }
-        });
-        jPanel4.add(deleteBandMemberButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, 50));
-
-        bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "First Name", "Last Name", "Nickname"
-            }
-        ));
-        bandMembersTable.setFillsViewportHeight(true);
-        jScrollPane11.setViewportView(bandMembersTable);
-
-        jPanel4.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 300, 100));
-
-        artistListBandTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "First Name", "Last Name", "Nickname"
-            }
-        ));
-        artistListBandTable.setFillsViewportHeight(true);
-        jScrollPane13.setViewportView(artistListBandTable);
-
-        jPanel4.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 300, 340));
-
-        jTabbedPane7.addTab("Band", jPanel4);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1053,6 +871,188 @@ public class Crud extends javax.swing.JFrame {
 
         jTabbedPane7.addTab("Video", jPanel6);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bandsTable.setForeground(new java.awt.Color(204, 0, 204));
+        bandsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "Country", "Fundation Date"
+            }
+        ));
+        bandsTable.setFillsViewportHeight(true);
+        bandsTable.setGridColor(new java.awt.Color(213, 213, 213));
+        bandsTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        bandsTable.setSelectionForeground(new java.awt.Color(204, 0, 204));
+        bandsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bandsTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(bandsTable);
+
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 301, 202));
+
+        label6.setForeground(new java.awt.Color(147, 62, 197));
+        label6.setText("ID");
+        jPanel4.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 60, -1, -1));
+
+        idBandTextField.setForeground(new java.awt.Color(204, 0, 204));
+        idBandTextField.setToolTipText("ID");
+        idBandTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idBandTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel4.add(idBandTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 178, -1));
+
+        label7.setForeground(new java.awt.Color(147, 62, 197));
+        label7.setText("Band name");
+        jPanel4.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, -1, -1));
+
+        bandNameTextField.setForeground(new java.awt.Color(204, 0, 204));
+        bandNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bandNameTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel4.add(bandNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, 178, -1));
+
+        label8.setForeground(new java.awt.Color(147, 62, 197));
+        label8.setText("Country");
+        jPanel4.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, -1, -1));
+
+        countryBandTextField.setForeground(new java.awt.Color(204, 0, 204));
+        countryBandTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countryBandTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel4.add(countryBandTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 178, -1));
+
+        label10.setForeground(new java.awt.Color(147, 62, 197));
+        label10.setText("Fundation date");
+        jPanel4.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, -1, -1));
+
+        createBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
+        createBandButton.setToolTipText("Click to create a band.");
+        createBandButton.setContentAreaFilled(false);
+        createBandButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createBandButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(createBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 300, -1, -1));
+
+        deleteBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deleteBandButton.setContentAreaFilled(false);
+        deleteBandButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBandButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(deleteBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, -1, -1));
+
+        label11.setForeground(new java.awt.Color(147, 62, 197));
+        label11.setText("Members");
+        jPanel4.add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+
+        addBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
+        addBandButton.setContentAreaFilled(false);
+        addBandButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBandButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(addBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, -1, -1));
+
+        label12.setForeground(new java.awt.Color(147, 62, 197));
+        label12.setText("Artists ");
+        jPanel4.add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, -1));
+
+        foundationDateTextField.setForeground(new java.awt.Color(204, 0, 204));
+        foundationDateTextField.setToolTipText("");
+        jPanel4.add(foundationDateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 180, -1));
+
+        cleanBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sweep.png"))); // NOI18N
+        cleanBandButton.setContentAreaFilled(false);
+        cleanBandButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cleanBandButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(cleanBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 70, -1, -1));
+
+        refreshBandButton.setBackground(new java.awt.Color(255, 255, 255));
+        refreshBandButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
+        refreshBandButton.setContentAreaFilled(false);
+        refreshBandButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshBandButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(refreshBandButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, -1, -1));
+
+        deleteBandMemberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubbish-bin-delete-button.png"))); // NOI18N
+        deleteBandMemberButton.setContentAreaFilled(false);
+        deleteBandMemberButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBandMemberButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(deleteBandMemberButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, 50));
+
+        bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "ID", "Artist"
+            }
+        ));
+        bandMembersTable.setFillsViewportHeight(true);
+        jScrollPane11.setViewportView(bandMembersTable);
+
+        jPanel4.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 300, 100));
+
+        artistListBandTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "First Name", "Last Name", "Nickname"
+            }
+        ));
+        artistListBandTable.setFillsViewportHeight(true);
+        jScrollPane13.setViewportView(artistListBandTable);
+
+        jPanel4.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 300, 340));
+
+        jTabbedPane7.addTab("Band", jPanel4);
+
         getContentPane().add(jTabbedPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 556));
 
         pack();
@@ -1178,6 +1178,9 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_createBandButtonActionPerformed
 
     private void deleteBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandButtonActionPerformed
+        memberBiz.deleteMembers(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
+//        fillBandMembersTable(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
+        bandMembersTable.removeAll();
         bandBiz.deleteBand(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
         idBandTextField.setEnabled(true);
         idBandTextField.setText("");
@@ -1187,10 +1190,11 @@ public class Crud extends javax.swing.JFrame {
         refreshBandButton.setEnabled(false);
         createBandButton.setEnabled(true);
         fillBandTable();
+        
     }//GEN-LAST:event_deleteBandButtonActionPerformed
 
     private void addBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBandButtonActionPerformed
-        memberBiz.insertMembers(artistListBandTable.getValueAt(artistListBandTable.getSelectedRow(), 0).toString(), idBandTextField.getText().toString());
+        memberBiz.insertMembers(artistListBandTable.getValueAt(artistListBandTable.getSelectedRow(), 0).toString(), idBandTextField.getText().toString(), artistListBandTable.getValueAt(artistListBandTable.getSelectedRow(), 0).toString());
         fillBandMembersTable(idBandTextField.getText());
     }//GEN-LAST:event_addBandButtonActionPerformed
 
@@ -1301,6 +1305,7 @@ public class Crud extends javax.swing.JFrame {
         foundationDateTextField.setText(bandsTable.getValueAt(bandsTable.getSelectedRow(), 3).toString());
         refreshBandButton.setEnabled(true);
         createBandButton.setEnabled(false);
+        bandMembersTable.removeAll();
     }//GEN-LAST:event_bandsTableMouseClicked
 
     private void deleteVideoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButton1ActionPerformed
@@ -1318,7 +1323,8 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_addVideoToPlaylistButtonActionPerformed
 
     private void deleteBandMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandMemberButtonActionPerformed
-
+        memberBiz.deleteMembers(bandMembersTable.getValueAt(bandMembersTable.getSelectedRow(), 0).toString());
+        fillBandMembersTable(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_deleteBandMemberButtonActionPerformed
 
     private void addVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoButtonActionPerformed
@@ -1378,8 +1384,6 @@ public class Crud extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Crud().setVisible(true);
-                new Crud().setResizable(false);
-
             }
         });
     }
