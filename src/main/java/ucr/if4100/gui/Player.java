@@ -188,6 +188,7 @@ public class Player extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Player().setVisible(true);
+                new Player().setResizable(false);
             }
         });
     }

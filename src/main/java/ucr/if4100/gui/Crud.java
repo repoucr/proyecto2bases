@@ -6,6 +6,9 @@
 package ucr.if4100.gui;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
 import ucr.if4100.domain.Artist;
 import ucr.if4100.domain.Band;
 import ucr.if4100.domain.Members;
@@ -16,7 +19,11 @@ import ucr.if4100.sqlaccess.business.concrete.BandBiz;
 import ucr.if4100.sqlaccess.business.concrete.MemberBiz;
 import ucr.if4100.sqlaccess.business.concrete.PlaylistBiz;
 import ucr.if4100.sqlaccess.business.concrete.VideoBiz;
-import ucr.if4100.sqlaccess.business.interfaces.IArtistBiz;
+import javax.swing.JTree;
+import javax.swing.SwingUtilities;
+import static javax.swing.SwingUtilities.updateComponentTreeUI;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -34,6 +41,7 @@ public class Crud extends javax.swing.JFrame {
     PlaylistBiz playlistBiz = new PlaylistBiz();
 
     public Crud() {
+
         initComponents();
         fillArtistTable();
         fillArtistListBandTable();
@@ -1370,6 +1378,8 @@ public class Crud extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Crud().setVisible(true);
+                new Crud().setResizable(false);
+
             }
         });
     }
