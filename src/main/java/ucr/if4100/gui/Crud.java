@@ -56,14 +56,12 @@ public class Crud extends javax.swing.JFrame {
         fillPlaylistTable();
         fillVideosTableP();
         fillartistsVideosTable();
-        
-        
+
         refreshArtistButton.setEnabled(false);
         refreshBandButton.setEnabled(false);
         refreshPlaylistButton.setEnabled(false);
         refreshVideoButton.setEnabled(false);
-        
-        
+
         deleteArtistButton.setEnabled(false);
         deleteBandButton.setEnabled(false);
         deleteBandMemberButton.setEnabled(false);
@@ -74,7 +72,6 @@ public class Crud extends javax.swing.JFrame {
         deleteVideoButton1.setEnabled(false);
         deleteArtistVideoButton.setEnabled(false);
         addVideoButton.setEnabled(false);
-                
 
     }
 
@@ -233,13 +230,14 @@ public class Crud extends javax.swing.JFrame {
             videosBelongsPlaylistTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableVideo, new String[]{"ID", "Title"}));
         }
     }
-    public void fillartistsVideosTable(){
-        
+
+    public void fillartistsVideosTable() {
+
         List<Artist> artists = artistBiz.getArtists();
-        List<Band> bands =bandBiz.getBand();
-        int countArtistsAndBands=artists.size()+bands.size();
-        if (countArtistsAndBands>0) {
-            int y=0;
+        List<Band> bands = bandBiz.getBand();
+        int countArtistsAndBands = artists.size() + bands.size();
+        if (countArtistsAndBands > 0) {
+            int y = 0;
             String[][] arrayTableVideo = new String[countArtistsAndBands][2];
             for (int i = 0; i < artists.size(); i++) {
                 arrayTableVideo[y][0] = artists.get(i).getId();
@@ -252,13 +250,14 @@ public class Crud extends javax.swing.JFrame {
                 y++;
             }
             artistsVideosTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableVideo, new String[]{"ID", "Title"}));
-        }else{
+        } else {
             String[][] arrayTableVideo = new String[0][2];
             artistsVideosTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableVideo, new String[]{"ID", "Title"}));
         }
-       
+
     }
-    public void fillArtistsReleaseVideosTable(){  
+
+    public void fillArtistsReleaseVideosTable() {
         List<Release> releases = releaseBiz.getRelease();
         if (releases.size() > 0) {
             int y = 0;
@@ -275,7 +274,7 @@ public class Crud extends javax.swing.JFrame {
             String[][] arrayTableVideo = new String[0][2];
             artistsReleaseVideosTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableVideo, new String[]{"ID", "Name"}));
         }
-        
+
     }
 
     /**
@@ -352,6 +351,7 @@ public class Crud extends javax.swing.JFrame {
         artistsReleaseVideosTable = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         artistsVideosTable = new javax.swing.JTable();
+        videoMessageLabel = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         bandsTable = new javax.swing.JTable();
@@ -1094,9 +1094,15 @@ public class Crud extends javax.swing.JFrame {
             }
         ));
         artistsVideosTable.setFillsViewportHeight(true);
+        artistsVideosTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                artistsVideosTableMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(artistsVideosTable);
 
         jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 300, 290));
+        jPanel6.add(videoMessageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 440, 200, 30));
 
         jTabbedPane7.addTab("Video", jPanel6);
 
@@ -1318,14 +1324,14 @@ public class Crud extends javax.swing.JFrame {
         idPlaylistTextfield.setEnabled(true);
         fillPlaylistTable();
         refreshPlaylistButton.setEnabled(false);
-        createPlaylistButton.setEnabled(true);    
+        createPlaylistButton.setEnabled(true);
         deletePlaylistButton.setEnabled(false);
         idPlaylistTextfield.setEnabled(true);
         idPlaylistTextfield.setText("");
         titlePlaylistTextfield.setText("");
         refreshPlaylistButton.setEnabled(false);
         createPlaylistButton.setEnabled(true);
-        
+
     }//GEN-LAST:event_deletePlaylistButtonActionPerformed
 
     private void deleteArtistVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistVideoButtonActionPerformed
@@ -1356,13 +1362,22 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_yearVideoTextFieldActionPerformed
 
     private void addNewVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewVideoButtonActionPerformed
-        videoBiz.insertVideo(idVideoTextField.getText().toString(), nameVideoTextField.getText().toString(), categoryVideoTextField.getText().toString(), urlVideoTextField.getText().toString(), yearVideoTextField.getText().toString());
-        fillVideoTable();
-        idVideoTextField.setText("");
-        nameVideoTextField.setText("");
-        categoryVideoTextField.setText("");
-        urlVideoTextField.setText("");
-        yearVideoTextField.setText("");
+        if (yearVideoTextField.getText().length() == 4) {
+            videoBiz.insertVideo(idVideoTextField.getText().toString(), nameVideoTextField.getText().toString(), categoryVideoTextField.getText().toString(), urlVideoTextField.getText().toString(), yearVideoTextField.getText().toString());
+            videoMessageLabel.setText("Video ingresado correctamente.");
+            fillVideoTable();
+            idVideoTextField.setText("");
+            nameVideoTextField.setText("");
+            categoryVideoTextField.setText("");
+            urlVideoTextField.setText("");
+            yearVideoTextField.setText("");
+            
+        }
+        if (idVideoTextField.getText().equals("") || nameVideoTextField.getText().equals("") || categoryVideoTextField.getText().equals("") || urlVideoTextField.getText().equals("") || yearVideoTextField.getText().equals("")) {
+            videoMessageLabel.setText("Ingrese todos los valores");
+        } else {
+            videoMessageLabel.setText("Formato de año incorrecto.");
+        }
     }//GEN-LAST:event_addNewVideoButtonActionPerformed
 
     private void deleteArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistButtonActionPerformed
@@ -1449,7 +1464,7 @@ public class Crud extends javax.swing.JFrame {
         fillBandTable();
         deleteBandButton.setEnabled(false);
         addBandButton.setEnabled(false);
-        
+
     }//GEN-LAST:event_deleteBandButtonActionPerformed
 
     private void addBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBandButtonActionPerformed
@@ -1511,7 +1526,13 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_cleanArtistButtonActionPerformed
 
     private void cleanVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanVideoButtonActionPerformed
-        // TODO add your handling code here:
+        idArtistTextField.setText("");
+        firstNameTextField.setText("");
+        lastNameTextField.setText("");
+        nicknameTextField.setText("");
+        countryTextField.setText("");
+        birthdayTextField.setText("");
+        videoMessageLabel.setText("");
     }//GEN-LAST:event_cleanVideoButtonActionPerformed
 
     private void cleanBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanBandButtonActionPerformed
@@ -1571,7 +1592,7 @@ public class Crud extends javax.swing.JFrame {
         createBandButton.setEnabled(false);
         deleteBandButton.setEnabled(true);
         addBandButton.setEnabled(true);
-        
+
     }//GEN-LAST:event_bandsTableMouseClicked
 
     private void deleteVideoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButton1ActionPerformed
@@ -1626,8 +1647,6 @@ public class Crud extends javax.swing.JFrame {
         fillVideosBelongsPlaylist();
         addVideoToPlaylistButton.setEnabled(true);
         deletePlaylistButton.setEnabled(true);
-        addVideoToPlaylistButton.setEnabled(true);
-        deletePlaylistButton.setEnabled(true);
     }//GEN-LAST:event_playlistTableMouseClicked
 
     private void deleteVideoFromPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoFromPlaylistButtonActionPerformed
@@ -1660,7 +1679,7 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_videosTablePKeyPressed
 
     private void videosTablePMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_videosTablePMouseClicked
-        // TODO add your handling code here:
+
         addVideoToPlaylistButton.setEnabled(true);
     }//GEN-LAST:event_videosTablePMouseClicked
 
@@ -1674,40 +1693,44 @@ public class Crud extends javax.swing.JFrame {
         deleteArtistVideoButton.setEnabled(true);
     }//GEN-LAST:event_artistsReleaseVideosTableMouseClicked
 
+    private void artistsVideosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_artistsVideosTableMouseClicked
+        addVideoButton.setEnabled(true);
+    }//GEN-LAST:event_artistsVideosTableMouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Crud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Crud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Crud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Crud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Crud().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Crud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Crud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Crud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Crud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Crud().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Nationality;
@@ -1794,6 +1817,7 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JButton refreshVideoButton;
     private javax.swing.JTextField titlePlaylistTextfield;
     private javax.swing.JTextField urlVideoTextField;
+    private javax.swing.JLabel videoMessageLabel;
     private javax.swing.JTable videoTable;
     private javax.swing.JTable videosBelongsPlaylistTable;
     private javax.swing.JTable videosTableP;
