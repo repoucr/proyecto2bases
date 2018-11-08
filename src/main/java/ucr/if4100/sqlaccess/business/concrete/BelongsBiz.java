@@ -21,16 +21,16 @@ public class BelongsBiz {
         this._dataProvider = new BelongsDataProvider();
     }
 
-    public List<Belongs> getMembers() {
+    public List<Belongs> getBelong() {
         return this._dataProvider.getBelongs();
     }
 
-    public Boolean insertMembers(String artistID, String bandID) {
-        Belongs newBelongs = new Belongs(artistID, bandID);
+    public Boolean insertBelong(String playlistID, String videoID, String title) {
+        Belongs newBelongs = new Belongs(playlistID, videoID,title);
         return _dataProvider.insertBelongs(newBelongs);
     }
 
-    public Boolean deleteMembers(String artistID) {
-        return _dataProvider.deleteBelons(artistID);
+    public Boolean deleteBelong(String ID) {
+        return _dataProvider.deleteBelons(ID);
     }
 }

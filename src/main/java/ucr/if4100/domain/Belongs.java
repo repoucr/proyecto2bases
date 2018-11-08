@@ -13,13 +13,15 @@ public class Belongs {
     
     private String playlistID;
     private String videoID;
+    private String title;
 
     public Belongs() {
     }
 
-    public Belongs(String playlistID, String videoID) {
+    public Belongs(String playlistID, String videoID, String title) {
         this.playlistID = playlistID;
         this.videoID = videoID;
+        this.title = title;
     }
 
     public String getPlaylistID() {
@@ -38,10 +40,20 @@ public class Belongs {
         this.videoID = videoID;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
     public String toString() {
-        return "Belongs{" + "playlistID=" + playlistID + ", videoID=" + videoID + '}';
+        return "Belongs{" + "playlistID=" + playlistID + ", videoID=" + videoID + ", title=" + title + '}';
     }
+
+    
     
     
     

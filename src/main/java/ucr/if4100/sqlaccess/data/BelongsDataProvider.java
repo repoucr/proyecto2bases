@@ -28,7 +28,7 @@ public class BelongsDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            PreparedStatement getBelongs = conn.prepareStatement("SELECT ID_playlist, ID_video FROM belongs");
+            PreparedStatement getBelongs = conn.prepareStatement("SELECT ID_playlist, ID_video, title FROM belongs");
 
             queryResult = getBelongs.executeQuery();
 
@@ -37,7 +37,7 @@ public class BelongsDataProvider {
 
                 belong.setPlaylistID(queryResult.getString("ID_playlist"));
                 belong.setVideoID(queryResult.getString("ID_video"));
-                
+                belong.setTitle(queryResult.getString("title"));
 
                 belongs.add(belong);
             }
@@ -75,9 +75,10 @@ public class BelongsDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String insertBelongsStm = String.format("INSERT INTO belongs (ID_playlist, ID_video) VALUES ('%s', '%s')",
+            String insertBelongsStm = String.format("INSERT INTO belongs (ID_playlist, ID_video, title) VALUES ('%s', '%s', '%s')",
                      newBelong.getPlaylistID(),
-                     newBelong.getVideoID());
+                     newBelong.getVideoID(),
+                     newBelong.getTitle());
                     
 
             insertBelong = conn.prepareStatement(insertBelongsStm);
