@@ -1371,12 +1371,13 @@ public class Crud extends javax.swing.JFrame {
             categoryVideoTextField.setText("");
             urlVideoTextField.setText("");
             yearVideoTextField.setText("");
-            
-        }
-        if (idVideoTextField.getText().equals("") || nameVideoTextField.getText().equals("") || categoryVideoTextField.getText().equals("") || urlVideoTextField.getText().equals("") || yearVideoTextField.getText().equals("")) {
-            videoMessageLabel.setText("Ingrese todos los valores");
+
         } else {
-            videoMessageLabel.setText("Formato de año incorrecto.");
+            if (idVideoTextField.getText().equals("") || nameVideoTextField.getText().equals("") || categoryVideoTextField.getText().equals("") || urlVideoTextField.getText().equals("") || yearVideoTextField.getText().equals("")) {
+                videoMessageLabel.setText("Ingrese todos los valores");
+            } else {
+                videoMessageLabel.setText("Formato de año incorrecto.");
+            }
         }
     }//GEN-LAST:event_addNewVideoButtonActionPerformed
 
