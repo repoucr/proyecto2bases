@@ -12,13 +12,15 @@ package ucr.if4100.domain;
 public class Release {
     private String artistID;
     private String videoID;
+    private String name;
 
     public Release() {
     }
 
-    public Release(String artistID, String videoID) {
+    public Release(String artistID, String videoID, String name) {
         this.artistID = artistID;
         this.videoID = videoID;
+        this.name = name;
     }
 
     public String getArtistID() {
@@ -37,10 +39,18 @@ public class Release {
         this.videoID = videoID;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
-        return "Release{" + "artistID=" + artistID + ", videoID=" + videoID + '}';
+        return "Release{" + "artistID=" + artistID + ", videoID=" + videoID + ", name=" + name + '}';
     }
-    
+
     
 }

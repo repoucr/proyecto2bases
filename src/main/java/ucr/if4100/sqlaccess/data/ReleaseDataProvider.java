@@ -28,7 +28,7 @@ public class ReleaseDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            PreparedStatement getRelease = conn.prepareStatement("SELECT ID_artist, ID_video FROM release");
+            PreparedStatement getRelease = conn.prepareStatement("SELECT ID_artist, ID_video, artist_name FROM release");
 
             queryResult = getRelease.executeQuery();
 
@@ -37,8 +37,7 @@ public class ReleaseDataProvider {
 
                 release.setArtistID(queryResult.getString("ID_artist"));
                 release.setVideoID(queryResult.getString("ID_video"));
-                
-
+                release.setName(queryResult.getString("artist_name"));
                 releases.add(release);
             }
 
@@ -75,9 +74,10 @@ public class ReleaseDataProvider {
         try {
             conn = DatabaseConnection.getDatabaseConnection();
 
-            String insertReleaseStm = String.format("INSERT INTO release (ID_artist, ID_video) VALUES ('%s', '%s')",
+            String insertReleaseStm = String.format("INSERT INTO release (ID_artist, ID_video, artist_name) VALUES ('%s', '%s', '%s')",
                      newRelease.getArtistID(),
-                     newRelease.getVideoID());
+                     newRelease.getVideoID(),
+                     newRelease.getName());
                     
 
             insertRelease = conn.prepareStatement(insertReleaseStm);

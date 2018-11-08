@@ -25,7 +25,9 @@ import static javax.swing.SwingUtilities.updateComponentTreeUI;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import ucr.if4100.domain.Belongs;
+import ucr.if4100.domain.Release;
 import ucr.if4100.sqlaccess.business.concrete.BelongsBiz;
+import ucr.if4100.sqlaccess.business.concrete.ReleaseBiz;
 
 /**
  *
@@ -42,6 +44,7 @@ public class Crud extends javax.swing.JFrame {
     VideoBiz videoBiz = new VideoBiz();
     PlaylistBiz playlistBiz = new PlaylistBiz();
     BelongsBiz belongsBiz = new BelongsBiz();
+    ReleaseBiz releaseBiz = new ReleaseBiz();
 
     public Crud() {
 
@@ -54,10 +57,12 @@ public class Crud extends javax.swing.JFrame {
         fillVideosTableP();
         fillartistsVideosTable();
         
+        
         refreshArtistButton.setEnabled(false);
         refreshBandButton.setEnabled(false);
         refreshPlaylistButton.setEnabled(false);
         refreshVideoButton.setEnabled(false);
+        
         
         deleteArtistButton.setEnabled(false);
         deleteBandButton.setEnabled(false);
@@ -66,6 +71,9 @@ public class Crud extends javax.swing.JFrame {
         addVideoToPlaylistButton.setEnabled(false);
         deletePlaylistButton.setEnabled(false);
         deleteVideoFromPlaylistButton.setEnabled(false);
+        deleteVideoButton1.setEnabled(false);
+        deleteArtistVideoButton.setEnabled(false);
+        addVideoButton.setEnabled(false);
                 
 
     }
@@ -250,6 +258,25 @@ public class Crud extends javax.swing.JFrame {
         }
        
     }
+    public void fillArtistsReleaseVideosTable(){  
+        List<Release> releases = releaseBiz.getRelease();
+        if (releases.size() > 0) {
+            int y = 0;
+            String[][] arrayTableVideo = new String[releases.size()][2];
+            for (int i = 0; i < releases.size(); i++) {
+                if (releases.get(i).getVideoID().equalsIgnoreCase(idVideoTextField.getText())) {
+                    arrayTableVideo[y][0] = releases.get(i).getArtistID();
+                    arrayTableVideo[y][1] = releases.get(i).getName();
+                    y++;
+                }
+            }
+            artistsReleaseVideosTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableVideo, new String[]{"ID", "Name"}));
+        } else {
+            String[][] arrayTableVideo = new String[0][2];
+            artistsReleaseVideosTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableVideo, new String[]{"ID", "Name"}));
+        }
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -322,7 +349,7 @@ public class Crud extends javax.swing.JFrame {
         refreshVideoButton = new javax.swing.JButton();
         deleteVideoButton1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        artistReleaseVideosTable = new javax.swing.JTable();
+        artistsReleaseVideosTable = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         artistsVideosTable = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -1034,19 +1061,24 @@ public class Crud extends javax.swing.JFrame {
         });
         jPanel6.add(deleteVideoButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
 
-        artistReleaseVideosTable.setModel(new javax.swing.table.DefaultTableModel(
+        artistsReleaseVideosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Name"
             }
         ));
-        artistReleaseVideosTable.setFillsViewportHeight(true);
-        jScrollPane3.setViewportView(artistReleaseVideosTable);
+        artistsReleaseVideosTable.setFillsViewportHeight(true);
+        artistsReleaseVideosTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                artistsReleaseVideosTableMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(artistsReleaseVideosTable);
 
         jPanel6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 300, 110));
 
@@ -1298,6 +1330,9 @@ public class Crud extends javax.swing.JFrame {
 
     private void deleteArtistVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistVideoButtonActionPerformed
         // TODO add your handling code here:
+        releaseBiz.deleteRelease(artistsReleaseVideosTable.getValueAt(artistsReleaseVideosTable.getSelectedRow(), 0).toString());
+        fillArtistsReleaseVideosTable();
+        deleteArtistVideoButton.setEnabled(false);
     }//GEN-LAST:event_deleteArtistVideoButtonActionPerformed
 
     private void idVideoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idVideoTextFieldActionPerformed
@@ -1541,12 +1576,15 @@ public class Crud extends javax.swing.JFrame {
 
     private void deleteVideoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButton1ActionPerformed
         videoBiz.deleteVideo(idVideoTextField.getText().toString());
+        releaseBiz.deleteRelease(idVideoTextField.getText().toString());
         idVideoTextField.setText("");
         nameVideoTextField.setText("");
         categoryVideoTextField.setText("");
         urlVideoTextField.setText("");
         yearVideoTextField.setText("");
         fillVideoTable();
+        fillArtistsReleaseVideosTable();
+        deleteVideoButton1.setEnabled(false);
     }//GEN-LAST:event_deleteVideoButton1ActionPerformed
 
     private void addVideoToPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoToPlaylistButtonActionPerformed
@@ -1562,13 +1600,8 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteBandMemberButtonActionPerformed
 
     private void addVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVideoButtonActionPerformed
-        videoBiz.insertVideo(idVideoTextField.getText().toString(), nameVideoTextField.getText().toString(), categoryVideoTextField.getText().toString(), urlVideoTextField.getText().toString(), yearVideoTextField.getText().toString());
-        idVideoTextField.setText("");
-        nameVideoTextField.setText("");
-        categoryVideoTextField.setText("");
-        urlVideoTextField.setText("");
-        yearVideoTextField.setText("");
-        fillVideoTable();
+        releaseBiz.insertRelease(artistsVideosTable.getValueAt(artistsVideosTable.getSelectedRow(), 0).toString(), idVideoTextField.getText(), artistsVideosTable.getValueAt(artistsVideosTable.getSelectedRow(), 1).toString());
+        fillArtistsReleaseVideosTable();
     }//GEN-LAST:event_addVideoButtonActionPerformed
 
     private void videoTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_videoTableMouseClicked
@@ -1580,6 +1613,8 @@ public class Crud extends javax.swing.JFrame {
         addNewVideoButton.setEnabled(false);
         idVideoTextField.setEnabled(false);
         refreshVideoButton.setEnabled(true);
+        fillArtistsReleaseVideosTable();
+        deleteVideoButton1.setEnabled(true);
     }//GEN-LAST:event_videoTableMouseClicked
 
     private void playlistTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playlistTableMouseClicked
@@ -1634,6 +1669,11 @@ public class Crud extends javax.swing.JFrame {
         addBandButton.setEnabled(true);
     }//GEN-LAST:event_artistListBandTableMouseClicked
 
+    private void artistsReleaseVideosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_artistsReleaseVideosTableMouseClicked
+        // TODO add your handling code here:
+        deleteArtistVideoButton.setEnabled(true);
+    }//GEN-LAST:event_artistsReleaseVideosTableMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1677,7 +1717,7 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JButton addVideoButton;
     private javax.swing.JButton addVideoToPlaylistButton;
     private javax.swing.JTable artistListBandTable;
-    private javax.swing.JTable artistReleaseVideosTable;
+    private javax.swing.JTable artistsReleaseVideosTable;
     private javax.swing.JTable artistsVideosTable;
     private javax.swing.JTable bandMembersTable;
     private javax.swing.JTextField bandNameTextField;
