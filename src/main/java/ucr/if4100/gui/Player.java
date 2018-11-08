@@ -9,14 +9,14 @@ package ucr.if4100.gui;
  *
  * @author Wilmata
  */
-import com.teamdev.jxbrowser.chromium.Browser;
-import com.teamdev.jxbrowser.chromium.swing.BrowserView;
+//import com.teamdev.jxbrowser.chromium.Browser;
+//import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 import java.awt.BorderLayout;
 
 public class Player extends javax.swing.JFrame {
 
-    Browser browser = new Browser();
-    BrowserView browserView = new BrowserView(browser);
+//    Browser browser = new Browser();
+//    BrowserView browserView = new BrowserView(browser);
 
     /**
      * Creates new form CRUD
@@ -155,9 +155,9 @@ public class Player extends javax.swing.JFrame {
 
     private void play1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_play1ButtonActionPerformed
 
-        videoPanel.setLayout(new BorderLayout());
-        videoPanel.add(browserView, BorderLayout.CENTER);
-        browser.loadURL("www.google.com");
+//        videoPanel.setLayout(new BorderLayout());
+//        videoPanel.add(browserView, BorderLayout.CENTER);
+//        browser.loadURL("www.google.com");
     }//GEN-LAST:event_play1ButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
