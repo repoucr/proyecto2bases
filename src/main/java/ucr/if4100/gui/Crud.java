@@ -1382,6 +1382,7 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_addNewVideoButtonActionPerformed
 
     private void deleteArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtistButtonActionPerformed
+        releaseBiz.deleteRelease(idArtistTextField.getText().toString());
         artistBiz.deleteArtist((deleteArtistTable.getValueAt(deleteArtistTable.getSelectedRow(), 0).toString()));
         fillArtistTable();
         fillArtistListBandTable();
@@ -1395,7 +1396,7 @@ public class Crud extends javax.swing.JFrame {
         refreshArtistButton.setEnabled(false);
         addArtistButton.setEnabled(true);
         deleteArtistButton.setEnabled(false);
-
+        donde la pongo? 
     }//GEN-LAST:event_deleteArtistButtonActionPerformed
 
     private void addArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArtistButtonActionPerformed
@@ -1450,9 +1451,6 @@ public class Crud extends javax.swing.JFrame {
 
     private void deleteBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandButtonActionPerformed
         memberBiz.deleteMembers(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
-        String[][] arrayTableArtist = new String[0][2];
-        bandMembersTable.setModel(new javax.swing.table.DefaultTableModel(arrayTableArtist, new String[]{"ID", "Artist"}));
-        bandMembersTable.removeAll();
         bandBiz.deleteBand(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
         idBandTextField.setEnabled(true);
         idBandTextField.setText("");
@@ -1462,10 +1460,8 @@ public class Crud extends javax.swing.JFrame {
         refreshBandButton.setEnabled(false);
         createBandButton.setEnabled(true);
         fillBandTable();
-        fillBandTable();
         deleteBandButton.setEnabled(false);
         addBandButton.setEnabled(false);
-
     }//GEN-LAST:event_deleteBandButtonActionPerformed
 
     private void addBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBandButtonActionPerformed
@@ -1597,8 +1593,8 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_bandsTableMouseClicked
 
     private void deleteVideoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoButton1ActionPerformed
-        videoBiz.deleteVideo(idVideoTextField.getText().toString());
         releaseBiz.deleteRelease(idVideoTextField.getText().toString());
+        videoBiz.deleteVideo(idVideoTextField.getText().toString());
         idVideoTextField.setText("");
         nameVideoTextField.setText("");
         categoryVideoTextField.setText("");
