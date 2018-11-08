@@ -1396,7 +1396,6 @@ public class Crud extends javax.swing.JFrame {
         refreshArtistButton.setEnabled(false);
         addArtistButton.setEnabled(true);
         deleteArtistButton.setEnabled(false);
-        donde la pongo? 
     }//GEN-LAST:event_deleteArtistButtonActionPerformed
 
     private void addArtistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArtistButtonActionPerformed
