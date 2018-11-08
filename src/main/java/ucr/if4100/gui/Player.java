@@ -9,7 +9,14 @@ package ucr.if4100.gui;
  *
  * @author Wilmata
  */
+import com.teamdev.jxbrowser.chromium.Browser;
+import com.teamdev.jxbrowser.chromium.swing.BrowserView;
+import java.awt.BorderLayout;
+
 public class Player extends javax.swing.JFrame {
+
+    Browser browser = new Browser();
+    BrowserView browserView = new BrowserView(browser);
 
     /**
      * Creates new form CRUD
@@ -29,7 +36,7 @@ public class Player extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        play1Button = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -57,14 +64,14 @@ public class Player extends javax.swing.JFrame {
         });
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 461, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/youtube-play-button.png"))); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        play1Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/youtube-play-button.png"))); // NOI18N
+        play1Button.setContentAreaFilled(false);
+        play1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                play1ButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 50, 40));
+        jPanel1.add(play1Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 50, 40));
 
         jLabel1.setText("Titulo");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 235, 24));
@@ -146,9 +153,12 @@ public class Player extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void play1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_play1ButtonActionPerformed
+
+        videoPanel.setLayout(new BorderLayout());
+        videoPanel.add(browserView, BorderLayout.CENTER);
+        browser.loadURL("www.google.com");
+    }//GEN-LAST:event_play1ButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Crud crud = new Crud();
@@ -193,7 +203,6 @@ public class Player extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -207,6 +216,7 @@ public class Player extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton play1Button;
     private javax.swing.JPanel videoPanel;
     // End of variables declaration//GEN-END:variables
 }
