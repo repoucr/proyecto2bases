@@ -8,6 +8,7 @@ package ucr.if4100.gui;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import ucr.if4100.domain.Artist;
 import ucr.if4100.domain.Band;
@@ -49,6 +50,10 @@ public class Crud extends javax.swing.JFrame {
     public Crud() {
 
         initComponents();
+         try {
+            setIconImage(new ImageIcon(getClass().getResource("/U2BEv2.png")).getImage());
+        } catch (NullPointerException e) {
+        }
         fillArtistTable();
         fillArtistListBandTable();
         fillBandTable();
@@ -330,6 +335,7 @@ public class Crud extends javax.swing.JFrame {
         cleanArtistButton = new javax.swing.JButton();
         artistMessageLabel = new javax.swing.JLabel();
         artistMessage2Label = new javax.swing.JLabel();
+        returnButton = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         videoTable = new javax.swing.JTable();
@@ -640,7 +646,7 @@ public class Crud extends javax.swing.JFrame {
                     .addComponent(playlistMessageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cleanPlaylistButton)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -653,7 +659,7 @@ public class Crud extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(deletePlaylistButton)
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -824,6 +830,14 @@ public class Crud extends javax.swing.JFrame {
             }
         });
 
+        returnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        returnButton.setContentAreaFilled(false);
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -862,6 +876,8 @@ public class Crud extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(cleanArtistButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(returnButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(artistMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(264, Short.MAX_VALUE))
@@ -911,14 +927,17 @@ public class Crud extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(deleteArtistButton))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(artistMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(artistMessage2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 69, Short.MAX_VALUE))
+                                .addComponent(artistMessage2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(artistMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(8, 8, 8))
+                                    .addComponent(returnButton, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                .addGap(0, 73, Short.MAX_VALUE))
         );
 
         jTabbedPane7.addTab("Artist", jPanel3);
@@ -1345,7 +1364,7 @@ public class Crud extends javax.swing.JFrame {
 
         jTabbedPane7.addTab("Band", jPanel4);
 
-        getContentPane().add(jTabbedPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 556));
+        getContentPane().add(jTabbedPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, -1, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1557,6 +1576,7 @@ public class Crud extends javax.swing.JFrame {
         nicknameTextField.setText("");
         countryTextField.setText("");
         birthdayTextField.setText("");
+        artistMessageLabel.setText("");
         idArtistTextField.setEnabled(true);
         addArtistButton.setEnabled(true);
         refreshArtistButton.setEnabled(false);
@@ -1581,6 +1601,7 @@ public class Crud extends javax.swing.JFrame {
         bandNameTextField.setText("");
         countryBandTextField.setText("");
         foundationDateTextField.setText("");
+        bandMessageLabel.setText("");
         refreshBandButton.setEnabled(false);
         createBandButton.setEnabled(true);
         deleteBandButton.setEnabled(false);
@@ -1725,6 +1746,7 @@ public class Crud extends javax.swing.JFrame {
         idPlaylistTextfield.setText("");
         titlePlaylistTextfield.setText("");
         playlistMessage2Label.setText("");
+        playlistMessageLabel.setText("");
         refreshPlaylistButton.setEnabled(false);
         createPlaylistButton.setEnabled(true);
     }//GEN-LAST:event_cleanPlaylistButtonActionPerformed
@@ -1786,6 +1808,12 @@ public class Crud extends javax.swing.JFrame {
         deletePlaylistButton.setEnabled(true);
         addVideoToPlaylistButton.setEnabled(true);
     }//GEN-LAST:event_playlistTableMouseClicked
+
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+            Player player = new Player();
+            this.setVisible(false);
+            player.setVisible(true);
+    }//GEN-LAST:event_returnButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1911,6 +1939,7 @@ public class Crud extends javax.swing.JFrame {
     private javax.swing.JButton refreshBandButton;
     private javax.swing.JButton refreshPlaylistButton;
     private javax.swing.JButton refreshVideoButton;
+    private javax.swing.JButton returnButton;
     private javax.swing.JTextField titlePlaylistTextfield;
     private javax.swing.JTextField urlVideoTextField;
     private javax.swing.JLabel videoMessage2Label;

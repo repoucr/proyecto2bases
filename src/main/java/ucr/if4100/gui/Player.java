@@ -42,16 +42,11 @@ public class Player extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         play1Button = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         administratorTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         accessButton = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
         videoPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         playerMessageLabel = new javax.swing.JLabel();
@@ -79,19 +74,13 @@ public class Player extends javax.swing.JFrame {
         });
         jPanel1.add(play1Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 50, 40));
 
-        jLabel1.setText("Titulo");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 235, 24));
-
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 235, -1));
-
         jLabel3.setText("Administrator");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
-        jPanel1.add(administratorTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 70, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, -1, -1));
+        jPanel1.add(administratorTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, 100, -1));
 
         jLabel4.setText("Password");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, -1, -1));
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 70, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, -1, -1));
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 100, -1));
 
         accessButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/key.png"))); // NOI18N
         accessButton.setContentAreaFilled(false);
@@ -100,22 +89,7 @@ public class Player extends javax.swing.JFrame {
                 accessButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(accessButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 90, 46, 30));
-
-        jLabel6.setText("Playlist");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 160, -1, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, 130, -1));
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/youtube-play-button.png"))); // NOI18N
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 40, 30));
+        jPanel1.add(accessButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, 46, 30));
 
         javax.swing.GroupLayout videoPanelLayout = new javax.swing.GroupLayout(videoPanel);
         videoPanel.setLayout(videoPanelLayout);
@@ -151,10 +125,6 @@ public class Player extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void play1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_play1ButtonActionPerformed
 
@@ -213,14 +183,9 @@ public class Player extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton accessButton;
     private javax.swing.JTextField administratorTextField;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPasswordField passwordField;
