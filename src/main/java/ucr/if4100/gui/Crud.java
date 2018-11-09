@@ -608,9 +608,9 @@ public class Crud extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(playlistMessage2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(204, 204, 204)
+                        .addGap(66, 66, 66)
+                        .addComponent(playlistMessage2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addVideoToPlaylistButton))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
@@ -629,7 +629,7 @@ public class Crud extends javax.swing.JFrame {
                                 .addComponent(deleteVideoFromPlaylistButton)
                                 .addGap(22, 22, 22)))
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(280, 280, 280)))))
@@ -646,7 +646,7 @@ public class Crud extends javax.swing.JFrame {
                     .addComponent(playlistMessageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cleanPlaylistButton)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addGap(282, 282, 282))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -849,7 +849,7 @@ public class Crud extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(130, 130, 130))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(artistMessage2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(artistMessage2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(deleteArtistButton)
                         .addGap(108, 108, 108)))
@@ -927,16 +927,16 @@ public class Crud extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(deleteArtistButton))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(artistMessage2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                         .addComponent(artistMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(8, 8, 8))
-                                    .addComponent(returnButton, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                    .addComponent(returnButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(artistMessage2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 73, Short.MAX_VALUE))
         );
 
@@ -1158,7 +1158,7 @@ public class Crud extends javax.swing.JFrame {
 
         jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 300, 340));
         jPanel6.add(videoMessageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 440, 200, 30));
-        jPanel6.add(videoMessage2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 290, 30));
+        jPanel6.add(videoMessage2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 530, 30));
 
         jTabbedPane7.addTab("Video", jPanel6);
 
@@ -1360,7 +1360,7 @@ public class Crud extends javax.swing.JFrame {
 
         jPanel4.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 300, 340));
         jPanel4.add(bandMessageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 170, 30));
-        jPanel4.add(bandMessage2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 260, 30));
+        jPanel4.add(bandMessage2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 390, 30));
 
         jTabbedPane7.addTab("Band", jPanel4);
 
@@ -1508,6 +1508,7 @@ public class Crud extends javax.swing.JFrame {
     private void deleteBandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBandButtonActionPerformed
         memberBiz.deleteMembers(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
         bandBiz.deleteBand(bandsTable.getValueAt(bandsTable.getSelectedRow(), 0).toString());
+        releaseBiz.deleteRelease(idBandTextField.getText().toString());
         idBandTextField.setEnabled(true);
         idBandTextField.setText("");
         bandNameTextField.setText("");

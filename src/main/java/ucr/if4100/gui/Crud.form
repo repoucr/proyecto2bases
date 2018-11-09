@@ -79,9 +79,9 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="playlistMessage2Label" min="-2" pref="470" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="playlistMessage2Label" min="-2" pref="192" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
                               <Component id="addVideoToPlaylistButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -105,7 +105,7 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane12" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane12" pref="356" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="label21" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
@@ -128,7 +128,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="cleanPlaylistButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="261" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="282" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -488,7 +488,7 @@
                               <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="artistMessage2Label" min="-2" pref="188" max="-2" attributes="0"/>
+                              <Component id="artistMessage2Label" min="-2" pref="454" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="deleteArtistButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
@@ -583,10 +583,6 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="deleteArtistButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="artistMessage2Label" min="-2" pref="29" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -596,6 +592,10 @@
                                           </Group>
                                           <Component id="returnButton" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="artistMessage2Label" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1311,7 +1311,7 @@
             <Component class="javax.swing.JLabel" name="videoMessage2Label">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="210" y="440" width="290" height="30"/>
+                  <AbsoluteConstraints x="30" y="430" width="530" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1777,7 +1777,7 @@
             <Component class="javax.swing.JLabel" name="bandMessage2Label">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="270" y="430" width="260" height="30"/>
+                  <AbsoluteConstraints x="40" y="420" width="390" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
