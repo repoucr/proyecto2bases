@@ -1623,6 +1623,7 @@ public class Crud extends javax.swing.JFrame {
         createBandButton.setEnabled(false);
         deleteBandButton.setEnabled(true);
         addBandButton.setEnabled(true);
+         addBandButton.setEnabled(true);
 
     }//GEN-LAST:event_bandsTableMouseClicked
 
@@ -1667,6 +1668,7 @@ public class Crud extends javax.swing.JFrame {
         refreshVideoButton.setEnabled(true);
         fillArtistsReleaseVideosTable();
         deleteVideoButton1.setEnabled(true);
+        addVideoButton.setEnabled(true);
     }//GEN-LAST:event_videoTableMouseClicked
 
     private void bandMembersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bandMembersTableMouseClicked
@@ -1676,7 +1678,7 @@ public class Crud extends javax.swing.JFrame {
 
     private void artistListBandTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_artistListBandTableMouseClicked
         // TODO add your handling code here:
-        addBandButton.setEnabled(true);
+       
     }//GEN-LAST:event_artistListBandTableMouseClicked
 
     private void artistsReleaseVideosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_artistsReleaseVideosTableMouseClicked
@@ -1685,7 +1687,7 @@ public class Crud extends javax.swing.JFrame {
     }//GEN-LAST:event_artistsReleaseVideosTableMouseClicked
 
     private void artistsVideosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_artistsVideosTableMouseClicked
-        addVideoButton.setEnabled(true);
+        
     }//GEN-LAST:event_artistsVideosTableMouseClicked
 
     private void deleteVideoFromPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVideoFromPlaylistButtonActionPerformed
@@ -1706,7 +1708,7 @@ public class Crud extends javax.swing.JFrame {
 
     private void videosTablePMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_videosTablePMouseClicked
 
-        addVideoToPlaylistButton.setEnabled(true);
+        
     }//GEN-LAST:event_videosTablePMouseClicked
 
     private void refreshPlaylistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPlaylistButtonActionPerformed
@@ -1782,6 +1784,7 @@ public class Crud extends javax.swing.JFrame {
         fillVideosBelongsPlaylist();
         addVideoToPlaylistButton.setEnabled(true);
         deletePlaylistButton.setEnabled(true);
+        addVideoToPlaylistButton.setEnabled(true);
     }//GEN-LAST:event_playlistTableMouseClicked
 
     /**
