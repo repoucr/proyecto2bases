@@ -18,12 +18,16 @@ public class Player extends javax.swing.JFrame {
 
 //    Browser browser = new Browser();
 //    BrowserView browserView = new BrowserView(browser);
-
     /**
      * Creates new form CRUD
      */
     public Player() {
         initComponents();
+        try {
+            setIconImage(new ImageIcon(getClass().getResource("/U2BEv2.png")).getImage());
+        } catch (NullPointerException e) {
+        }
+
     }
 
     /**
@@ -41,15 +45,16 @@ public class Player extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        administratorTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        passwordField = new javax.swing.JPasswordField();
+        accessButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         videoPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        playerMessageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 0));
@@ -82,24 +87,20 @@ public class Player extends javax.swing.JFrame {
 
         jLabel3.setText("Administrator");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
-
-        jTextField2.setText("jTextField2");
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 70, -1));
+        jPanel1.add(administratorTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 70, -1));
 
         jLabel4.setText("Password");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, -1, -1));
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 70, -1));
 
-        jPasswordField1.setText("jPasswordField1");
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 70, -1));
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/key.png"))); // NOI18N
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        accessButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/key.png"))); // NOI18N
+        accessButton.setContentAreaFilled(false);
+        accessButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                accessButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 90, 46, 30));
+        jPanel1.add(accessButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 90, 46, 30));
 
         jLabel6.setText("Playlist");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 160, -1, -1));
@@ -131,6 +132,7 @@ public class Player extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/U2BEv2.png"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        jPanel1.add(playerMessageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 140, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,11 +163,15 @@ public class Player extends javax.swing.JFrame {
 //        browser.loadURL("www.google.com");
     }//GEN-LAST:event_play1ButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Crud crud = new Crud();
-        this.setVisible(false);
-        crud.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void accessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accessButtonActionPerformed
+        if (administratorTextField.getText().equalsIgnoreCase("administrator") && passwordField.getText().equals("pass")) {
+            Crud crud = new Crud();
+            this.setVisible(false);
+            crud.setVisible(true);
+        }else{
+            playerMessageLabel.setText("Datos incorrectos");
+        }
+    }//GEN-LAST:event_accessButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,7 +182,7 @@ public class Player extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        ImageIcon img = new ImageIcon("/images/");
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -205,7 +211,8 @@ public class Player extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton accessButton;
+    private javax.swing.JTextField administratorTextField;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -215,10 +222,10 @@ public class Player extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton play1Button;
+    private javax.swing.JLabel playerMessageLabel;
     private javax.swing.JPanel videoPanel;
     // End of variables declaration//GEN-END:variables
 }
